@@ -1,0 +1,43 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Simple Language Switcher 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-01-01 12:00+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Mohammad Anbarestany <m_anbarestany@hotmail.com>\n"
+"Language-Team: \n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.0\n"
+"X-Domain: simple-language-switcher\n"
+
+#: simple-language-switcher.php:21
+msgid "No current post ID found."
+msgstr ""
+
+#: simple-language-switcher.php:27
+msgid "No languages found."
+msgstr ""
+
+#: simple-language-switcher.php:44
+msgid "No translation available for %s"
+msgstr ""
+
+#: simple-language-switcher.php:53
+msgid "Languages"
+msgstr ""
+
+#: simple-language-switcher.php:55
+msgid "Available Languages"
+msgstr ""
+
+#: simple-language-switcher.php:78
+msgid "Polylang not activated"
+msgstr ""
+
+#: simple-language-switcher.php:112
+msgid "This plugin requires Polylang to be installed and activated."
+msgstr ""

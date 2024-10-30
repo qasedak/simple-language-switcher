@@ -1,0 +1,109 @@
+/* Styles for the popup container */
+.popup {
+    position: relative;
+    display: inline-block;
+}
+
+/* Styles for the popup button */
+.popbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    -webkit-transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease;
+}
+
+/* Styles for the popup content */
+.popup-content {
+    display: none;
+    position: fixed;
+    background-color: #f9f9f9;
+    min-width: 300px;
+    /* Increased width to accommodate columns */
+    -webkit-box-shadow: 0px 0px 100vh 100vw rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 0px 100vh 100vw rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    border-radius: 8px;
+    -webkit-animation: fadeIn 0.3s ease;
+    animation: fadeIn 0.3s ease;
+    will-change: opacity;
+}
+
+/* Styles for the list inside the popup */
+.popup-content ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    -webkit-column-count: 2;
+    -moz-column-count: 2;
+    column-count: 2;
+    -webkit-column-gap: 20px;
+    -moz-column-gap: 20px;
+    column-gap: 20px;
+    width: 100%;
+}
+
+/* Styles for list items */
+.popup-content ul li {
+    padding: 8px 12px;
+    -webkit-column-break-inside: avoid;
+    page-break-inside: avoid;
+    break-inside: avoid;
+    margin-bottom: 5px;
+    -webkit-transition: background-color 0.2s ease;
+    transition: background-color 0.2s ease;
+}
+
+/* Hover effect for links */
+.popup-content ul li a:hover {
+    background-color: #ddd;
+}
+
+/* Show popup when active */
+.popup-content.show {
+    display: block;
+}
+
+/* Styles for the popup title */
+.popup-title {
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 12px;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 15px;
+}
+
+/* Fade-in animation */
+@-webkit-keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Responsive design for smaller screens */
+@media screen and (max-width: 480px) {
+    .popup-content ul {
+        -webkit-column-count: 1;
+        -moz-column-count: 1;
+        column-count: 1;
+    }
+}
