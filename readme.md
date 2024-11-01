@@ -1,6 +1,6 @@
 # Simple Language Switcher
 
-**Version:** 1.3 Alpha
+**Version:** 1.3 Beta
 
 ## Description
 
@@ -29,4 +29,4 @@ This plugin is licensed under the GPLv3.
 
 ## Support
 
-For support, please contact the author at [m_anbarestany@hotmail.com](mailto:m_anbarestany@hotmail.com).
+For support, please contact me [m_anbarestany@hotmail.com](mailto:m_anbarestany@hotmail.com).

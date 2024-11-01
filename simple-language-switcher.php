@@ -3,7 +3,7 @@
 /**
  * Plugin Name: Simple Language Switcher
  * Description: A lightweight language switcher plugin that displays a clean, modal-style language selection popup. Compatible with Polylang.
- * Version: 1.3
+ * Version: 1.4
  * Author: MACSE
  * Text Domain: simple-language-switcher
  */
@@ -32,6 +32,17 @@ function display_translated_post_links() {
 
         if (!empty($languages)) {
             foreach ($languages as $language) {
+                // Get current post ID
+                $current_post_id = get_the_ID();
+                
+                // Check if translation exists for this language
+                $translation_id = pll_get_post($current_post_id, $language['slug']);
+                
+                // Skip if no translation exists
+                if (!$translation_id) {
+                    continue;
+                }
+                
                 echo '<li><a href="' . esc_url($language['url']) . '" lang="' . esc_attr($language['slug']) . '">' 
                     . esc_html($language['name']) . '</a></li>';
             }
