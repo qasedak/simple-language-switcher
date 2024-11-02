@@ -3,7 +3,7 @@
 /**
  * Plugin Name: Simple Language Switcher
  * Description: A lightweight language switcher plugin that displays a clean, modal-style language selection popup. Compatible with Polylang.
- * Version: 1.4
+ * Version: 1.5
  * Author: MACSE
  * Text Domain: simple-language-switcher
  */
