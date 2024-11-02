@@ -9,6 +9,7 @@
     background-color: #4CAF50;
     color: white;
     padding: 10px;
+    font-family: inherit;
     font-size: 16px;
     border: none;
     cursor: pointer;
@@ -64,7 +65,7 @@
 
 /* Hover effect for links */
 .popup-content ul li a:hover {
-    background-color: #ddd;
+    color: #555555;
 }
 
 /* Show popup when active */
@@ -106,4 +107,38 @@
         -moz-column-count: 1;
         column-count: 1;
     }
+}
+
+.lang-flag {
+    width: 16px;
+    height: 16px;
+    vertical-align: middle;
+    margin-right: 5px;
+    display: inline-block;
+}
+
+/* Adjust list items to accommodate flags */
+.popup-content ul li a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+}
+
+.language-icon {
+    display: inline-flex; 
+    align-items: center; 
+}
+
+.language-icon svg {
+    width: 1em; 
+    height: 1em; 
+    fill: currentColor; 
+    margin-right: 0.5em; 
+}
+
+/* Adjust margins for RTL languages */
+.language-icon:dir(rtl) svg {
+    margin-left: 0.5em; 
+    margin-right: 0; 
 }
