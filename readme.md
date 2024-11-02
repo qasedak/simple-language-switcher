@@ -16,7 +16,19 @@ Simple Language Switcher is a lightweight WordPress plugin that provides a clean
 
 1. **Add the Shortcode**: Use the `[translated_links]` shortcode in your posts, pages, or widgets where you want the language switcher to appear.
 
-2. **Customize Appearance**: You can customize the appearance of the popup by editing the `style.css` file located in the plugin directory.
+2. **Configure Settings**: Go to Settings > Language Switcher in your WordPress admin panel to customize:
+   - Show/hide country flags
+   - Show/hide language names
+   - Hide current language from the list
+   - Hide languages without translations
+
+3. **Customize Appearance**: You can customize the appearance of the language switcher through:
+   - The plugin settings page for display options
+   - Your theme's CSS for advanced styling
+
+4. **RTL Support**: The plugin automatically supports right-to-left (RTL) languages and adjusts its layout accordingly.
+
+Note: Make sure Polylang is properly configured with your desired languages before using this plugin.
 
 ## Requirements
 
