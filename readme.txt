@@ -2,7 +2,7 @@
 Contributors: macse
 Tags: language, switcher, polylang, multilingual, languages, translation
 Requires at least: 5.0
-Tested up to: 6.4
+Tested up to: 6.6
 Requires PHP: 7.4
 Stable tag: 1.5
 License: GPLv3
