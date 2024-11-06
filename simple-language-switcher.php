@@ -36,7 +36,7 @@ function display_translated_post_links()
     echo '</span>';
     echo esc_html(pll_current_language('name')) . '</button>';
     echo '<div class="popup-content">';
-    echo '<div class="popup-title">' . __('Available Languages', 'simple-language-switcher') . '</div>';
+    echo '<div class="popup-title">' . esc_html__('Available Languages', 'simple-language-switcher') . '</div>';
     echo '<ul>';
 
     $options = get_option('sls_settings');
@@ -65,7 +65,7 @@ function display_translated_post_links()
             echo '>';
 
             if (!empty($options['show_flags']) && !empty($language['flag'])) {
-                echo $language['flag'] . " &nbsp;";
+                echo wp_kses_post($language['flag']) . ' &nbsp;';
             }
 
             if (!empty($options['show_names'])) {
@@ -106,7 +106,7 @@ function simple_language_switcher_activate()
 {
     if (!function_exists('pll_languages_list')) {
         deactivate_plugins(plugin_basename(__FILE__));
-        wp_die(__('This plugin requires Polylang to be installed and activated.', 'simple-language-switcher'));
+        wp_die(esc_html__('This plugin requires Polylang to be installed and activated.', 'simple-language-switcher'));
     }
 }
 register_activation_hook(__FILE__, 'simple_language_switcher_activate');
