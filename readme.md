@@ -1,6 +1,6 @@
 # Simple Language Switcher
 
-**Version:** 1.5 RC
+**Version:** 1.6
 
 ## Description
 

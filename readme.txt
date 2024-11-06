@@ -4,7 +4,7 @@ Tags: language, switcher, polylang, multilingual, languages, translation
 Requires at least: 5.0
 Tested up to: 6.6
 Requires PHP: 7.4
-Stable tag: 1.5
+Stable tag: 1.6
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -54,6 +54,8 @@ Yes, you can customize the display through the plugin settings page. For advance
 3. Example of RTL language support
 
 == Changelog ==
+= 1.6 =
+* Added auto-switch feature
 
 = 1.5 =
 * Added display options in settings
@@ -66,8 +68,8 @@ Yes, you can customize the display through the plugin settings page. For advance
 
 == Upgrade Notice ==
 
-= 1.5 =
-This version adds new customization options and improves security. Upgrade recommended.
+= 1.6 =
+This version adds auto-switch feature. Upgrade recommended.
 
 == Privacy Policy ==
 

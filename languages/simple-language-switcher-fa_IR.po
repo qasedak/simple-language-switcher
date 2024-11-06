@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Simple Language Switcher 1.5\n"
+"Project-Id-Version: Simple Language Switcher 1.6\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: Mohammad Anbarestany <m_anbarestany@hotmail.com>\n"
 "Language-Team: \n"
