@@ -72,7 +72,14 @@ function display_translated_post_links()
             echo '>';
 
             if (!empty($options['show_flags']) && !empty($language['flag'])) {
-                echo wp_kses_post($language['flag']) . ' &nbsp;';
+                // Extract the src attribute from the flag HTML
+                $dom = new DOMDocument(); 
+                @$dom->loadHTML($language['flag'], LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
+                $img = $dom->getElementsByTagName('img')->item(0);
+                if ($img && $img->hasAttribute('src')) {
+                    $src = $img->getAttribute('src');
+                    echo '<img decoding="async" src="'. esc_attr($src) .'" alt="' . esc_attr($language['name']) . '" width="16" height="11" style="width: 16px; height: 11px;">&nbsp;';
+                }
             }
 
             if (!empty($options['show_names'])) {
