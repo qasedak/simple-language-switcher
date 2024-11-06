@@ -4,7 +4,7 @@
  * Plugin Name: Simple Language Switcher
  * Plugin URI: https://anbarestany.ir/simple-language-switcher-a-clean-modal-language-switcher-for-wordpress/
  * Description: A lightweight language switcher plugin that displays a clean, modal-style language selection popup. Compatible with Polylang.
- * Version: 1.5
+ * Version: 1.6
  * Requires at least: 5.0
  * Requires PHP: 7.4
  * Author: MACSE
@@ -22,6 +22,24 @@ if (!defined('ABSPATH')) {
 /**
  * Auto-detect and redirect to user's preferred language
  */
+
+function get_browser_language_code($available_languages = [], $default = 'en'): string
+{
+    $browser_languages = explode(',', $_SERVER['HTTP_ACCEPT_LANGUAGE']);
+
+    if (empty($available_languages)) {
+        return substr($browser_languages[0], 0, 2);
+    }
+
+    foreach ($browser_languages as $language) {
+        $language = substr($language, 0, 2);
+        if (in_array($language, $available_languages)) {
+            return $language;
+        }
+    }
+    return $default;
+}
+
 function sls_auto_switch_language() {
     // Only run this on the frontend
     if (is_admin()) {
@@ -34,47 +52,34 @@ function sls_auto_switch_language() {
         return;
     }
 
-    // Don't redirect if user has already made a language choice
-    if (isset($_COOKIE['sls_language_choice'])) {
-        return;
-    }
-
     // Get available languages from Polylang
     if (!function_exists('pll_languages_list')) {
         return;
     }
-    $available_languages = pll_languages_list(['fields' => 'locale']);
     
-    // Get browser languages
-    $browser_languages = array();
-    if (!empty($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
-        // Parse Accept-Language header
-        $accept_languages = explode(',', $_SERVER['HTTP_ACCEPT_LANGUAGE']);
-        foreach ($accept_languages as $language) {
-            $lang = explode(';', $language)[0];
-            $browser_languages[] = strtolower(str_replace('-', '_', trim($lang)));
-        }
-    }
-
-    // Find the first matching language
-    foreach ($browser_languages as $browser_lang) {
-        if (in_array($browser_lang, $available_languages)) {
-            $current_lang = pll_current_language('locale');
-            if ($browser_lang !== $current_lang) {
-                // Get the URL for the matched language
-                $url = pll_the_languages(['raw' => 1, 'hide_if_no_translation' => 0]);
-                foreach ($url as $lang) {
-                    if ($lang['locale'] === $browser_lang) {
-                        // Set cookie to remember user's choice
-                        setcookie('sls_language_choice', '1', time() + MONTH_IN_SECONDS, COOKIEPATH, COOKIE_DOMAIN);
-                        // Redirect to the matched language
-                        wp_redirect($lang['url']);
-                        exit;
-                    }
-                }
+    // Get languages in slug format (en, fa, etc.)
+    $available_languages = pll_languages_list();
+    
+    // Get browser's preferred language
+    $browser_lang = get_browser_language_code();
+    
+    // Get current language slug
+    $current_lang = pll_current_language();
+    
+    // Only redirect if browser language is different from current
+    if ($browser_lang !== $current_lang && in_array($browser_lang, $available_languages)) {
+        if (is_singular()) {
+            // Get translation if available
+            $translation_id = pll_get_post(get_the_ID(), $browser_lang);
+            if ($translation_id) {
+                wp_redirect(get_permalink($translation_id));
+                exit;
             }
-            break;
         }
+        
+        // Fallback to home page in the preferred language if no translation exists
+        wp_redirect(pll_home_url($browser_lang));
+        exit;
     }
 }
 add_action('template_redirect', 'sls_auto_switch_language', 1);
