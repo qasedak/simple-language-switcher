@@ -76,3 +76,11 @@ msgstr ""
 #: admin-settings.php:80
 msgid "Hide languages that don't have translations for the current content"
 msgstr ""
+
+#: admin-settings.php:81
+msgid "Auto Language Switch"
+msgstr ""
+
+#: admin-settings.php:82
+msgid "Automatically switch to visitor's preferred language based on browser settings"
+msgstr ""

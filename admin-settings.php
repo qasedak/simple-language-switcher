@@ -11,7 +11,8 @@ class SimpleLanguageSwitcherSettings {
         'hide_untranslated' => 1,
         'show_flags' => 0,
         'show_names' => 1,
-        'hide_current' => 0
+        'hide_current' => 0,
+        'auto_switch' => 0
     ];
 
     public static function get_instance() {
@@ -77,6 +78,10 @@ class SimpleLanguageSwitcherSettings {
             'hide_untranslated' => [
                 'title' => __('Hide Untranslated Languages', 'simple-language-switcher'),
                 'description' => __('Hide languages that don\'t have translations for the current content', 'simple-language-switcher')
+            ],
+            'auto_switch' => [
+                'title' => __('Auto Language Switch', 'simple-language-switcher'),
+                'description' => __('Automatically switch to visitor\'s preferred language based on browser settings', 'simple-language-switcher')
             ]
         ];
 
@@ -115,7 +120,8 @@ class SimpleLanguageSwitcherSettings {
             'hide_untranslated' => !empty($input['hide_untranslated']) ? 1 : 0,
             'show_flags' => !empty($input['show_flags']) ? 1 : 0,
             'show_names' => !empty($input['show_names']) ? 1 : 0,
-            'hide_current' => !empty($input['hide_current']) ? 1 : 0
+            'hide_current' => !empty($input['hide_current']) ? 1 : 0,
+            'auto_switch' => !empty($input['auto_switch']) ? 1 : 0
         ];
     }
 

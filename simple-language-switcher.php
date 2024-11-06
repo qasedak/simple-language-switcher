@@ -19,6 +19,66 @@ if (!defined('ABSPATH')) {
     exit; // Prevent direct access
 }
 
+/**
+ * Auto-detect and redirect to user's preferred language
+ */
+function sls_auto_switch_language() {
+    // Only run this on the frontend
+    if (is_admin()) {
+        return;
+    }
+
+    // Check if auto-switch is enabled in settings
+    $options = get_option('sls_settings');
+    if (empty($options['auto_switch'])) {
+        return;
+    }
+
+    // Don't redirect if user has already made a language choice
+    if (isset($_COOKIE['sls_language_choice'])) {
+        return;
+    }
+
+    // Get available languages from Polylang
+    if (!function_exists('pll_languages_list')) {
+        return;
+    }
+    $available_languages = pll_languages_list(['fields' => 'locale']);
+    
+    // Get browser languages
+    $browser_languages = array();
+    if (!empty($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
+        // Parse Accept-Language header
+        $accept_languages = explode(',', $_SERVER['HTTP_ACCEPT_LANGUAGE']);
+        foreach ($accept_languages as $language) {
+            $lang = explode(';', $language)[0];
+            $browser_languages[] = strtolower(str_replace('-', '_', trim($lang)));
+        }
+    }
+
+    // Find the first matching language
+    foreach ($browser_languages as $browser_lang) {
+        if (in_array($browser_lang, $available_languages)) {
+            $current_lang = pll_current_language('locale');
+            if ($browser_lang !== $current_lang) {
+                // Get the URL for the matched language
+                $url = pll_the_languages(['raw' => 1, 'hide_if_no_translation' => 0]);
+                foreach ($url as $lang) {
+                    if ($lang['locale'] === $browser_lang) {
+                        // Set cookie to remember user's choice
+                        setcookie('sls_language_choice', '1', time() + MONTH_IN_SECONDS, COOKIEPATH, COOKIE_DOMAIN);
+                        // Redirect to the matched language
+                        wp_redirect($lang['url']);
+                        exit;
+                    }
+                }
+            }
+            break;
+        }
+    }
+}
+add_action('template_redirect', 'sls_auto_switch_language', 1);
+
 // Generate language links as a popup
 function display_translated_post_links()
 {
