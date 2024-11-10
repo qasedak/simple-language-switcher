@@ -52,16 +52,19 @@ function sls_auto_switch_language() {
         return;
     }
 
-    // Get available languages from Polylang
-    if (!function_exists('pll_languages_list')) {
+    // Check if Polylang functions exist
+    if (!function_exists('pll_languages_list') || !function_exists('pll_default_language')) {
         return;
     }
     
     // Get languages in slug format (en, fa, etc.)
     $available_languages = pll_languages_list();
     
-    // Get browser's preferred language
-    $browser_lang = get_browser_language_code();
+    // Get Polylang's default language
+    $default_language = pll_default_language();
+    
+    // Get browser's preferred language with available languages and default from Polylang
+    $browser_lang = get_browser_language_code($available_languages, $default_language);
     
     // Get current language slug
     $current_lang = pll_current_language();
@@ -84,7 +87,10 @@ function sls_auto_switch_language() {
 }
 add_action('template_redirect', 'sls_auto_switch_language', 1);
 
-// Generate language links as a popup
+/**
+ * Generate language links as a popup
+ */
+
 function display_translated_post_links()
 {
     // Check if Polylang is active first
