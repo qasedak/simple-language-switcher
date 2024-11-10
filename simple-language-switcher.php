@@ -52,6 +52,11 @@ function sls_auto_switch_language() {
         return;
     }
 
+    // Check if user has already made a language choice through our popup
+    if (isset($_COOKIE['sls_user_language'])) {
+        return;
+    }
+
     // Check if Polylang functions exist
     if (!function_exists('pll_languages_list') || !function_exists('pll_default_language')) {
         return;
@@ -135,7 +140,10 @@ function display_translated_post_links()
         foreach ($languages as $language) {
             echo '<li><a href="' . esc_url($language['url']) . '" lang="' . esc_attr($language['slug']) . '"';
 
-            // Use Polylang's native current language detection
+            // Add data attribute for language
+            echo ' data-language="' . esc_attr($language['slug']) . '"';
+            echo ' class="sls-language-link"';
+
             if ($language['slug'] === $current_lang) {
                 echo ' aria-current="true"';
             }
@@ -175,7 +183,13 @@ add_shortcode('translated_links', 'display_translated_post_links');
 function translated_links_enqueue_styles_and_scripts()
 {
     wp_enqueue_style('simple-language-switcher-style', plugin_dir_url(__FILE__) . 'style.css');
-    wp_enqueue_script('simple-language-switcher-script', plugin_dir_url(__FILE__) . 'script.js', array(), null, true);
+    wp_enqueue_script('simple-language-switcher-script', plugin_dir_url(__FILE__) . 'script.js', array('jquery'), null, true);
+    
+    // Add cookie path data for JavaScript
+    wp_localize_script('simple-language-switcher-script', 'slsData', array(
+        'cookiePath' => COOKIEPATH,
+        'cookieDomain' => COOKIE_DOMAIN
+    ));
 }
 add_action('wp_enqueue_scripts', 'translated_links_enqueue_styles_and_scripts');
 
