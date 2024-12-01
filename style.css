@@ -4,6 +4,12 @@
     display: inline-block;
 }
 
+.popup p {
+    margin: 0;
+    padding: 0;
+    display: inline;
+}
+
 /* Styles for the popup button */
 .popbtn {
     background-color: #4CAF50;
