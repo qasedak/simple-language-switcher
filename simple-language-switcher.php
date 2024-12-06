@@ -19,14 +19,17 @@ if (!defined('ABSPATH')) {
     exit; // Prevent direct access
 }
 
+// Register strings for Polylang
+function register_polylang_strings() {
+    if (function_exists('pll_register_string')) {
+        pll_register_string('Available Languages', 'Available Languages', 'simple-language-switcher');
+    }
+}
+add_action('init', 'register_polylang_strings');
+
 // Generate language links as a popup
 function display_translated_post_links()
 {
-    // Check if Polylang is active first
-    if (!function_exists('pll_the_languages')) {
-        return '<div class="error">' . esc_html__('Polylang not activated', 'simple-language-switcher') . '</div>';
-    }
-
     // Get current language info
     $current_lang = pll_current_language('slug');
     if (!$current_lang) {
@@ -43,7 +46,9 @@ function display_translated_post_links()
     echo '</span>';
     echo esc_html(pll_current_language('name')) . '</button>';
     echo '<div class="popup-content">';
-    echo '<div class="popup-title">' . esc_html__('Available Languages', 'simple-language-switcher') . '</div>';
+    echo '<div class="popup-title">'; 
+    pll_e('Available Languages', 'simple-language-switcher');
+    echo '</div>';
     echo '<ul>';
 
     $options = get_option('sls_settings');

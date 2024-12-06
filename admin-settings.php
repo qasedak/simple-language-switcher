@@ -58,6 +58,7 @@ class SimpleLanguageSwitcherSettings {
 
     public function render_settings_description() {
         echo '<p>' . esc_html__('Configure how the language switcher appears on your site.', 'simple-language-switcher') . '</p>';
+        echo '<p>' . esc_html__('Note: You can use the shortcode [simple-language-switcher] to display the language switcher in any post or page and the Language Popup\'s title (Available Languages) is translatable in Polylang settings.', 'simple-language-switcher') . '</p>';
     }
 
     private function add_settings_fields() {
