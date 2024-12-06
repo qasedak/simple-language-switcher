@@ -57,6 +57,7 @@ Yes, you can customize the display through the plugin settings page. For advance
 
 = 1.6 =
 * Bug fix: Fixed the issue where the language switcher was not working on category pages
+* Added languages title option in settings
 
 = 1.5 =
 * Added display options in settings
@@ -71,7 +72,7 @@ Yes, you can customize the display through the plugin settings page. For advance
 == Upgrade Notice ==
 
 = 1.6 =
-This version adds support for categories and fixes the issue where the language switcher was not working on category pages. Upgrade recommended.
+This version fixes the issue where the language switcher was not working on category pages and adds a languages title option in settings. Upgrade recommended.
 
 == Privacy Policy ==
 

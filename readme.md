@@ -21,6 +21,7 @@ Simple Language Switcher is a lightweight WordPress plugin that provides a clean
    - Show/hide language names
    - Hide current language from the list
    - Hide languages without translations
+   - Custom languages title
 
 3. **Customize Appearance**: You can customize the appearance of the language switcher through:
    - The plugin settings page for display options
