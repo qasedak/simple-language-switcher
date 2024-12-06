@@ -97,5 +97,5 @@ msgstr "مخفی کردن زبان‌هایی که برای محتوای فعل�
 msgid "Languages Title"
 msgstr "عنوان زبان‌ها"
 
-msgid "Custom title for the languages popup. The title will be available for translation in Polylang's String Translations."
-msgstr "عنوان سفارشی برای پاپ‌آپ زبان. عنوان برای ترجمه در بخش ترجمه های Polylang در دسترس خواهد بود."
+msgid "Custom title for the languages popup"
+msgstr "عنوان سفارشی برای پاپ‌آپ زبان‌ها"

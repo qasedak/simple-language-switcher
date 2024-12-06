@@ -77,10 +77,8 @@ msgstr ""
 msgid "Hide languages that don't have translations for the current content"
 msgstr ""
 
-#: admin-settings.php:83
 msgid "Languages Title"
 msgstr ""
 
-#: admin-settings.php:84
-msgid "Custom title for the languages popup. The title will be available for translation in Polylang\'s String Translations."
+msgid "Custom title for the languages popup"
 msgstr ""

@@ -45,8 +45,8 @@ function display_translated_post_links()
     echo '<div class="popup-content">';
     $options = get_option('sls_settings');
     $languages_title = isset($options['languages_title']) && !empty($options['languages_title']) 
-        ? pll__($options['languages_title']) 
-        : pll__('Available Languages');
+        ? $options['languages_title'] 
+        : __('Available Languages', 'simple-language-switcher');
 
     echo '<div class="popup-title">' . esc_html($languages_title) . '</div>';
     echo '<ul>';
@@ -140,11 +140,3 @@ register_activation_hook(__FILE__, 'simple_language_switcher_activate');
 if (is_admin()) {
     require_once plugin_dir_path(__FILE__) . 'admin-settings.php';
 }
-
-// Register languages_title string with Polylang
-function register_strings_with_polylang() {
-    if (function_exists('pll_register_string')) {
-        pll_register_string('languages_title', 'Available Languages', 'Simple Language Switcher');
-    }
-}
-add_action('init', 'register_strings_with_polylang');

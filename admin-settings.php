@@ -81,7 +81,7 @@ class SimpleLanguageSwitcherSettings {
             ],
             'languages_title' => [
                 'title' => __('Languages Title', 'simple-language-switcher'),
-                'description' => __('Custom title for the languages popup. The title will be available for translation in Polylang\'s String Translations.', 'simple-language-switcher'),
+                'description' => __('Custom title for the languages popup', 'simple-language-switcher'),
                 'type' => 'text'
             ]
         ];
@@ -130,25 +130,13 @@ class SimpleLanguageSwitcherSettings {
     }
 
     public function sanitize_settings($input) {
-        $sanitized = [
+        return [
             'hide_untranslated' => !empty($input['hide_untranslated']) ? 1 : 0,
             'show_flags' => !empty($input['show_flags']) ? 1 : 0,
             'show_names' => !empty($input['show_names']) ? 1 : 0,
             'hide_current' => !empty($input['hide_current']) ? 1 : 0,
             'languages_title' => sanitize_text_field($input['languages_title'])
         ];
-
-        // Update the registered string in Polylang
-        if (function_exists('pll_register_string')) {
-            pll_register_string(
-                'languages_title',
-                $sanitized['languages_title'],
-                'Simple Language Switcher',
-                false
-            );
-        }
-
-        return $sanitized;
     }
 
     public function render_settings_page() {
