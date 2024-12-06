@@ -91,9 +91,3 @@ msgstr "مخفی کردن زبان‌های ترجمه نشده"
 
 msgid "Hide languages that don't have translations for the current content"
 msgstr "مخفی کردن زبان‌هایی که برای محتوای فعلی ترجمه ندارند"
-
-msgid "Languages Title"
-msgstr "عنوان زبان‌ها"
-
-msgid "Custom title for the languages popup"
-msgstr "عنوان سفارشی برای پاپ‌آپ زبان‌ها"

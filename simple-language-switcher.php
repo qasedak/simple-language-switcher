@@ -43,13 +43,10 @@ function display_translated_post_links()
     echo '</span>';
     echo esc_html(pll_current_language('name')) . '</button>';
     echo '<div class="popup-content">';
-    $options = get_option('sls_settings');
-    $languages_title = isset($options['languages_title']) && !empty($options['languages_title']) 
-        ? $options['languages_title'] 
-        : __('Available Languages', 'simple-language-switcher');
-
-    echo '<div class="popup-title">' . esc_html($languages_title) . '</div>';
+    echo '<div class="popup-title">' . esc_html__('Available Languages', 'simple-language-switcher') . '</div>';
     echo '<ul>';
+
+    $options = get_option('sls_settings');
 
     // Determine the current object ID based on the page type
     $current_object_id = null;

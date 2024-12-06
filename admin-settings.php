@@ -11,8 +11,7 @@ class SimpleLanguageSwitcherSettings {
         'hide_untranslated' => 1,
         'show_flags' => 0,
         'show_names' => 1,
-        'hide_current' => 0,
-        'languages_title' => 'Available Languages'
+        'hide_current' => 0
     ];
 
     public static function get_instance() {
@@ -78,11 +77,6 @@ class SimpleLanguageSwitcherSettings {
             'hide_untranslated' => [
                 'title' => __('Hide Untranslated Languages', 'simple-language-switcher'),
                 'description' => __('Hide languages that don\'t have translations for the current content', 'simple-language-switcher')
-            ],
-            'languages_title' => [
-                'title' => __('Languages Title', 'simple-language-switcher'),
-                'description' => __('Custom title for the languages popup', 'simple-language-switcher'),
-                'type' => 'text'
             ]
         ];
 
@@ -90,7 +84,7 @@ class SimpleLanguageSwitcherSettings {
             add_settings_field(
                 'sls_' . $key,
                 $field['title'],
-                [$this, isset($field['type']) && $field['type'] === 'text' ? 'render_text_field' : 'render_checkbox_field'],
+                [$this, 'render_checkbox_field'],
                 $this->page_slug,
                 'sls_main_section',
                 [
@@ -116,26 +110,12 @@ class SimpleLanguageSwitcherSettings {
         <?php
     }
 
-    public function render_text_field($args) {
-        $options = get_option($this->option_name, $this->default_settings);
-        $value = isset($options[$args['key']]) ? $options[$args['key']] : $this->default_settings[$args['key']];
-        ?>
-        <input type="text" 
-               id="sls_<?php echo esc_attr($args['key']); ?>" 
-               name="<?php echo esc_attr($this->option_name); ?>[<?php echo esc_attr($args['key']); ?>]" 
-               value="<?php echo esc_attr($value); ?>"
-               class="regular-text">
-        <p class="description"><?php echo esc_html($args['description']); ?></p>
-        <?php
-    }
-
     public function sanitize_settings($input) {
         return [
             'hide_untranslated' => !empty($input['hide_untranslated']) ? 1 : 0,
             'show_flags' => !empty($input['show_flags']) ? 1 : 0,
             'show_names' => !empty($input['show_names']) ? 1 : 0,
-            'hide_current' => !empty($input['hide_current']) ? 1 : 0,
-            'languages_title' => sanitize_text_field($input['languages_title'])
+            'hide_current' => !empty($input['hide_current']) ? 1 : 0
         ];
     }
 
