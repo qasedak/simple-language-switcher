@@ -1,7 +1,5 @@
 # Simple Language Switcher
 
-**Version:** 1.5 RC
-
 ## Description
 
 Simple Language Switcher is a lightweight WordPress plugin that provides a clean, modal-style language selection popup. It is designed to work seamlessly with the Polylang plugin, allowing users to switch between different languages on your website with ease.

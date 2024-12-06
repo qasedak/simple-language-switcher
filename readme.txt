@@ -4,7 +4,7 @@ Tags: language, switcher, polylang, multilingual, languages, translation
 Requires at least: 5.0
 Tested up to: 6.6
 Requires PHP: 7.4
-Stable tag: 1.5
+Stable tag: 1.6
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -55,19 +55,23 @@ Yes, you can customize the display through the plugin settings page. For advance
 
 == Changelog ==
 
+= 1.6 =
+* Bug fix: Fixed the issue where the language switcher was not working on category pages
+
 = 1.5 =
 * Added display options in settings
 * Improved RTL support
 * Added flag display option
 * Security improvements
+* Bug fix: extra white space added by wpautop() is now removed using CSS.
 
 = 1.0 =
 * Initial release
 
 == Upgrade Notice ==
 
-= 1.5 =
-This version adds new customization options and improves security. Upgrade recommended.
+= 1.6 =
+This version adds support for categories and fixes the issue where the language switcher was not working on category pages. Upgrade recommended.
 
 == Privacy Policy ==
 

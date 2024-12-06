@@ -4,7 +4,7 @@
  * Plugin Name: Simple Language Switcher
  * Plugin URI: https://anbarestany.ir/simple-language-switcher-a-clean-modal-language-switcher-for-wordpress/
  * Description: A lightweight language switcher plugin that displays a clean, modal-style language selection popup. Compatible with Polylang.
- * Version: 1.5
+ * Version: 1.6
  * Requires at least: 5.0
  * Requires PHP: 7.4
  * Author: MACSE
@@ -48,13 +48,21 @@ function display_translated_post_links()
 
     $options = get_option('sls_settings');
 
+    // Determine the current object ID based on the page type
+    $current_object_id = null;
+    if (is_category()) {
+        $current_object_id = get_queried_object_id();
+    } else {
+        $current_object_id = get_the_ID();
+    }
+
     // Use Polylang's native arguments
     $args = array(
         'show_flags' => isset($options['show_flags']) ? $options['show_flags'] : 0,
         'show_names' => isset($options['show_names']) ? $options['show_names'] : 1,
         'hide_current' => isset($options['hide_current']) ? $options['hide_current'] : 0,
         'hide_if_no_translation' => isset($options['hide_untranslated']) ? $options['hide_untranslated'] : 1,
-        'post_id' => get_the_ID(), // Let Polylang handle the post ID
+        'post_id' => $current_object_id,
         'raw' => 1
     );
 
