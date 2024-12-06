@@ -33,20 +33,6 @@ Simple Language Switcher adds a sleek, modal-style language selector to your Wor
 3. Ensure Polylang is installed and activated
 4. Use the Settings->Language Switcher screen to configure display options
 
-== Frequently Asked Questions ==
-
-= Does this work without Polylang? =
-
-No, this plugin requires Polylang to be installed and activated as it uses Polylang's translation system.
-
-= How do I add the language switcher to my site? =
-
-Use the shortcode `[translated_links]` in your posts, pages, or widgets where you want the language switcher to appear.
-
-= Can I customize the appearance? =
-
-Yes, you can customize the display through the plugin settings page. For advanced customization, you can override the plugin's CSS in your theme.
-
 == Screenshots ==
 
 1. Language switcher popup on the frontend
@@ -57,6 +43,9 @@ Yes, you can customize the display through the plugin settings page. For advance
 
 = 1.6 =
 * Bug fix: Fixed the issue where the language switcher was not working on category pages
+* Popup title is now translatable through Polylang's translations settings
+* Improved code quality
+* Language files (POT, PO, MO) are updated and corrected
 
 = 1.5 =
 * Added display options in settings
@@ -71,7 +60,7 @@ Yes, you can customize the display through the plugin settings page. For advance
 == Upgrade Notice ==
 
 = 1.6 =
-This version adds support for categories and fixes the issue where the language switcher was not working on category pages. Upgrade recommended.
+This version fixes the issue where the language switcher was not working on category pages and makes SLS's popup title translatable through Polylang. Upgrade recommended.
 
 == Privacy Policy ==
 
