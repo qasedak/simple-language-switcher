@@ -76,3 +76,9 @@ msgstr ""
 #: admin-settings.php:80
 msgid "Hide languages that don't have translations for the current content"
 msgstr ""
+
+msgid "Languages Title"
+msgstr ""
+
+msgid "Custom title for the languages popup"
+msgstr ""
