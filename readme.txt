@@ -4,7 +4,7 @@ Tags: language, switcher, polylang, multilingual, languages, translation
 Requires at least: 5.0
 Tested up to: 6.6
 Requires PHP: 7.4
-Stable tag: 1.6
+Stable tag: 1.7
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -41,6 +41,9 @@ Simple Language Switcher adds a sleek, modal-style language selector to your Wor
 
 == Changelog ==
 
+= 1.7 =
+* Added author display name translation feature
+
 = 1.6 =
 * Bug fix: Fixed the issue where the language switcher was not working on category pages
 * Popup title is now translatable through Polylang's translations settings
@@ -59,8 +62,8 @@ Simple Language Switcher adds a sleek, modal-style language selector to your Wor
 
 == Upgrade Notice ==
 
-= 1.6 =
-This version fixes the issue where the language switcher was not working on category pages and makes SLS's popup title translatable through Polylang. Upgrade recommended.
+= 1.7 =
+This version adds a feature to translate author display names across languages through Polylang. Upgrade recommended.
 
 == Privacy Policy ==
 
