@@ -19,6 +19,8 @@ if (!defined('ABSPATH')) {
     exit; // Prevent direct access
 }
 
+require_once plugin_dir_path(__FILE__) . 'translate-helper.php';
+
 // Register strings for Polylang
 function register_polylang_strings() {
     if (function_exists('pll_register_string')) {

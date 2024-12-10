@@ -83,3 +83,11 @@ msgstr "مخفی کردن زبان‌های ترجمه نشده"
 #: admin-settings.php:80
 msgid "Hide languages that don't have translations for the current content"
 msgstr "مخفی کردن زبان‌هایی که برای محتوای فعلی ترجمه ندارند"
+
+#: admin-settings.php:84
+msgid "Translate Author Display Names"
+msgstr "ترجمه نام نویسندگان"
+
+#: admin-settings.php:85
+msgid "Enable translation of author display names across languages through Polylang"
+msgstr "فعال کردن ترجمه نام نویسندگان در زبان‌های مختلف از طریق Polylang"

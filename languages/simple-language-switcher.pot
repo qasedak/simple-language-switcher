@@ -76,3 +76,13 @@ msgstr ""
 #: admin-settings.php:80
 msgid "Hide languages that don't have translations for the current content"
 msgstr ""
+
+#: admin-settings.php:84
+msgid "Translate Author Display Names"
+msgstr ""
+
+#: admin-settings.php:85
+msgid "Enable translation of author display names across languages through Polylang"
+msgstr ""
+
+
