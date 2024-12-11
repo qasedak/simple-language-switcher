@@ -12,14 +12,15 @@ A clean, modal-style language switcher for WordPress sites using Polylang.
 
 == Description ==
 
-Simple Language Switcher adds a sleek, modal-style language selector to your WordPress website. It works seamlessly with Polylang to provide a modern way for users to switch between languages.
+Simple Language Switcher adds a sleek, modal-style language selector to your WordPress website. It works seamlessly with Polylang to provide a modern way for users to switch between languages and adds some advanced features to Polylang.
 
 = Features =
+* Lightweight and fast
 * Modern popup interface
 * Seamless Polylang integration
+* Translatable popup title and author display name
 * Customizable display options
 * RTL language support
-* Lightweight and fast
 
 = Requirements =
 * WordPress 5.0 or higher
