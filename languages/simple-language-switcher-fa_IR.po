@@ -1,10 +1,10 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Simple Language Switcher 1.7\n"
+"Project-Id-Version: Simple Language Switcher 1.8\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2024-12-07 00:12+0330\n"
+"PO-Revision-Date: 2024-12-18 01:50+0330\n"
 "Last-Translator: Mohammad Anbarestany <m_anbarestany@hotmail.com>\n"
 "Language-Team: \n"
 "Language: fa\n"
@@ -43,14 +43,8 @@ msgid "Configure how the language switcher appears on your site."
 msgstr "نحوه نمایش سوییچ زبان در سایت خود را پیکربندی کنید."
 
 #: admin-settings.php:61
-msgid ""
-"Note: You can use the shortcode [simple-language-switcher] to display the "
-"language switcher in any post or page and the Language Popup's title "
-"(Available Languages) is translatable in Polylang settings."
-msgstr ""
-"نکته: به کمک شورت کد [simple-language-switcher] می توانید سوییج زبان را "
-"در هرجا کی بخواهید به نمایش دربیاورید و عنوان پاپ‌آپ زبان (Available "
-"Languages) در بخش ترجمه Polylang قابل شخصی سازی و ترجمه است."
+msgid "Note: You can use the shortcode [simple-language-switcher] to display the language switcher in any post or page and the Language Popup's title (Available Languages) is translatable in Polylang settings."
+msgstr "نکته: به کمک شورت کد [simple-language-switcher] می توانید سوییج زبان را در هرجا کی بخواهید به نمایش دربیاورید و عنوان پاپ‌آپ زبان (Available Languages) در بخش ترجمه Polylang قابل شخصی سازی و ترجمه است."
 
 #: admin-settings.php:66
 msgid "Show Flags"
@@ -91,3 +85,37 @@ msgstr "ترجمه نام نویسندگان"
 #: admin-settings.php:85
 msgid "Enable translation of author display names across languages through Polylang"
 msgstr "فعال کردن ترجمه نام نویسندگان در زبان‌های مختلف از طریق Polylang"
+
+#: admin-settings.php:177
+msgid "Translatable Strings"
+msgstr "رشته های قابل ترجمه"
+
+#: admin-settings.php:149
+msgid "Add translatable strings that you can use in your templates. Use the shortcode format [SLS-{identifier}] to display the translated string. The identifier is uesed as a key and it can be numbers, letters and underscores only in <strong>english</strong>."
+msgstr ""
+"رشته های قابل ترجمه داخواهتان را اضافه کنید  می توانید از آنها در قالب کوتاه کوتاه در هرجایی از وبسایت خود استفاده کنید. از قالب کد کوتاه [SLS-{identifier}] برای نمایش رشته ترجمه شده استفاده کنید. شناسه به عنوان یک کلید استفاده می شود و می تواند فقط به "
+"<strong>زبان انگلیسی</strong> اعداد، حروف و زیرخط باشد."
+
+#: admin-settings.php:192
+msgid "Identifier"
+msgstr "شناسه"
+
+#: admin-settings.php:193
+msgid "Value"
+msgstr "متن"
+
+#: admin-settings.php:194
+msgid "Shortcode"
+msgstr "کدکوتاه"
+
+#: admin-settings.php:195
+msgid "Action"
+msgstr "عملیات"
+
+#: admin-settings.php:213
+msgid "Remove"
+msgstr "حذف"
+
+#: admin-settings.php:220
+msgid "Add String"
+msgstr "افزودن رشته"

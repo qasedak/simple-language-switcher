@@ -1,7 +1,7 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Simple Language Switcher 1.7\n"
+"Project-Id-Version: Simple Language Switcher 1.8\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
@@ -83,6 +83,38 @@ msgstr ""
 
 #: admin-settings.php:85
 msgid "Enable translation of author display names across languages through Polylang"
+msgstr ""
+
+#: admin-settings.php:177
+msgid "Translatable Strings"
+msgstr ""
+
+#: admin-settings.php:149
+msgid "Add translatable strings that you can use in your templates. Use the shortcode format [SLS-{identifier}] to display the translated string. The identifier is uesed as a key and it can be numbers, letters and underscores only in <strong>english</strong>."
+msgstr ""
+
+#: admin-settings.php:192
+msgid "Identifier"
+msgstr ""
+
+#: admin-settings.php:193
+msgid "Value"
+msgstr ""
+
+#: admin-settings.php:194
+msgid "Shortcode"
+msgstr ""
+
+#: admin-settings.php:195
+msgid "Action"
+msgstr ""
+
+#: admin-settings.php:213
+msgid "Remove"
+msgstr ""
+
+#: admin-settings.php:220
+msgid "Add String"
 msgstr ""
 
 

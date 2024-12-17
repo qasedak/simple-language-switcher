@@ -4,7 +4,7 @@ Tags: language, switcher, polylang, multilingual, languages, translation
 Requires at least: 5.0
 Tested up to: 6.6
 Requires PHP: 7.4
-Stable tag: 1.7
+Stable tag: 1.8
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -21,6 +21,7 @@ Simple Language Switcher adds a sleek, modal-style language selector to your Wor
 * Translatable popup title and author display name
 * Customizable display options
 * RTL language support
+* Translatable strings across languages through Polylang
 
 = Requirements =
 * WordPress 5.0 or higher
@@ -41,6 +42,9 @@ Simple Language Switcher adds a sleek, modal-style language selector to your Wor
 3. Example of RTL language support
 
 == Changelog ==
+
+= 1.8 =
+* Added translatable strings feature
 
 = 1.7 =
 * Added author display name translation feature
@@ -63,8 +67,8 @@ Simple Language Switcher adds a sleek, modal-style language selector to your Wor
 
 == Upgrade Notice ==
 
-= 1.7 =
-This version adds a feature to translate author display names across languages through Polylang. Upgrade recommended.
+= 1.8 =
+This version adds a feature to translatable strings across languages through Polylang. Upgrade recommended.
 
 == Privacy Policy ==
 

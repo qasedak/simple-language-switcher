@@ -2,7 +2,7 @@
 
 ## Description
 
-Simple Language Switcher is a lightweight WordPress plugin that provides a clean, modal-style language selection popup. It is designed to work seamlessly with the Polylang plugin, allowing users to switch between different languages on your website with ease. It adds some advanced features to Polylang.
+Simple Language Switcher is a lightweight WordPress plugin that provides a clean, modal-style language selection popup. It is designed to work seamlessly with the Polylang plugin, allowing users to switch between different languages on your website with ease and it adds some advanced features so using Polylang would be easier.
 ![Screenshot](https://github.com/user-attachments/assets/7db8b8cf-abab-4ed3-94e7-dbd990baab80)
 
 ## Features
@@ -13,6 +13,7 @@ Simple Language Switcher is a lightweight WordPress plugin that provides a clean
 - Translatable popup title and author display name
 - Customizable display options
 - RTL language support
+- Translatable strings across languages through Polylang
 
 ## Installation
 
@@ -23,8 +24,9 @@ Simple Language Switcher is a lightweight WordPress plugin that provides a clean
 ## Usage
 
 1. **Add the Shortcode**: Use the `[translated_links]` shortcode in your posts, pages, or widgets where you want the language switcher to appear.
+2. **Add Translatable Strings**: Go to Settings > Translatable Strings in your WordPress admin panel to add translatable strings and use the shortcode format [SLS-{identifier}] to display the translated string. The identifier is uesed as a key and it can be numbers, letters and underscores only in english.
 
-2. **Configure Settings**: 
+3. **Configure Settings**: 
    - Go to Settings > Language Switcher in your WordPress admin panel to customize:
      - Show/hide country flags
      - Show/hide language names
@@ -32,11 +34,11 @@ Simple Language Switcher is a lightweight WordPress plugin that provides a clean
      - Hide languages without translations
    - Go to Languages > Translations to translate the popup title.
 
-3. **Customize Appearance**: You can customize the appearance of the language switcher through:
+4. **Customize Appearance**: You can customize the appearance of the language switcher through:
    - The plugin settings page for display options
    - Your theme's CSS for advanced styling
 
-2. **RTL Support**: The plugin automatically supports right-to-left (RTL) languages and adjusts its layout accordingly.
+5. **RTL Support**: The plugin automatically supports right-to-left (RTL) languages and adjusts its layout accordingly.
 
 Note: Make sure Polylang is properly configured with your desired languages before using this plugin.
 

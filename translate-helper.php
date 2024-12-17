@@ -53,3 +53,37 @@ function replace_author_with_display_name($display_name) {
 }
 add_filter('the_author', 'replace_author_with_display_name');
 add_filter('get_the_author_display_name', 'replace_author_with_display_name');
+
+function register_translatable_strings() {
+    $strings = get_option('sls_translatable_strings', []);
+    foreach ($strings as $string) {
+        if (!empty($string['identifier']) && !empty($string['value'])) {
+            pll_register_string($string['identifier'], $string['value'], 'simple-language-switcher');
+        }
+    }
+}
+add_action('admin_init', 'register_translatable_strings');
+
+function handle_translatable_string_shortcode($atts, $content, $tag) {
+    // Extract identifier from shortcode tag (removes 'SLS-' prefix)
+    $identifier = substr($tag, 4);
+    
+    $strings = get_option('sls_translatable_strings', []);
+    foreach ($strings as $string) {
+        if ($string['identifier'] === $identifier) {
+            return pll__($string['value'], 'simple-language-switcher');
+        }
+    }
+    return '';
+}
+
+function register_translatable_string_shortcodes() {
+    $strings = get_option('sls_translatable_strings', []);
+    foreach ($strings as $string) {
+        if (!empty($string['identifier'])) {
+            add_shortcode('SLS-' . $string['identifier'], 'handle_translatable_string_shortcode');
+        }
+    }
+}
+add_action('init', 'register_translatable_string_shortcodes');
+
