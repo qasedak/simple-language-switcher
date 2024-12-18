@@ -8,12 +8,12 @@ Simple Language Switcher is a lightweight WordPress plugin that provides a clean
 ## Features
 
 - Lightweight and fast
-- Modern popup interface
+- Modern popup interface (using shortcodes for now)
 - Seamless Polylang integration
+- Translatable strings across languages through Polylang using Gutenberg block or shortcodes
 - Translatable popup title and author display name
 - Customizable display options
 - RTL language support
-- Translatable strings across languages through Polylang
 
 ## Installation
 
@@ -24,19 +24,23 @@ Simple Language Switcher is a lightweight WordPress plugin that provides a clean
 ## Usage
 
 1. **Add the Shortcode**: Use the `[translated_links]` shortcode in your posts, pages, or widgets where you want the language switcher to appear.
-2. **Add Translatable Strings**: Go to Settings > Translatable Strings in your WordPress admin panel to add translatable strings and use the shortcode format [SLS-{identifier}] to display the translated string. The identifier is uesed as a key and it can be numbers, letters and underscores only in english.
+2. **Add Translatable Strings**: 
+    - Use the Gutenberg block "Translatable String" to add translatable strings. (Recommended)
+    - Use the shortcode format [SLS-{identifier}] to display the translated string. (For old themes)
 
 3. **Configure Settings**: 
-   - Go to Settings > Language Switcher in your WordPress admin panel to customize:
+   - Go to Settings > Language Switcher > Display settings to customize:
      - Show/hide country flags
      - Show/hide language names
      - Hide current language from the list
      - Hide languages without translations
-   - Go to Languages > Translations to translate the popup title.
+     - Disable/Enable shortcodes
+   - Go to Languages > Translations to translate the popup title, author display name and translatable strings.
+   - Go to Settings > Translatable Strings to add translatable strings.
 
 4. **Customize Appearance**: You can customize the appearance of the language switcher through:
    - The plugin settings page for display options
-   - Your theme's CSS for advanced styling
+   - Your theme's CSS for advanced styling (UI Customizer will be available soon)
 
 5. **RTL Support**: The plugin automatically supports right-to-left (RTL) languages and adjusts its layout accordingly.
 

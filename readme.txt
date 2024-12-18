@@ -16,12 +16,12 @@ Simple Language Switcher adds a sleek, modal-style language selector to your Wor
 
 = Features =
 * Lightweight and fast
-* Modern popup interface
+* Modern popup interface (using shortcodes for now)
 * Seamless Polylang integration
 * Translatable popup title and author display name
 * Customizable display options
 * RTL language support
-* Translatable strings across languages through Polylang
+* Translatable strings across languages through Polylang using Gutenberg block or shortcodes
 
 = Requirements =
 * WordPress 5.0 or higher
@@ -42,6 +42,11 @@ Simple Language Switcher adds a sleek, modal-style language selector to your Wor
 3. Example of RTL language support
 
 == Changelog ==
+
+= 1.9 RC =
+* Bug fix: Fixed the issue where saving translatable strings was not working
+* Added Gutenberg block "Translatable String"
+* Added Disable/Enable shortcodes option in settings
 
 = 1.8 =
 * Added translatable strings feature
@@ -67,8 +72,8 @@ Simple Language Switcher adds a sleek, modal-style language selector to your Wor
 
 == Upgrade Notice ==
 
-= 1.8 =
-This version adds a feature to translatable strings across languages through Polylang. Upgrade recommended.
+= 1.9 RC =
+This version adds support for Gutenberg blocks and a new option to disable/enable shortcodes in the settings page aslo contains some bug fixes. Upgrade recommended.
 
 == Privacy Policy ==
 
