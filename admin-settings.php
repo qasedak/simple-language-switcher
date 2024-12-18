@@ -169,7 +169,9 @@ class SimpleLanguageSwitcherSettings {
     }
 
     public function render_strings_description() {
-        echo '<p>' . __('Add translatable strings that you can use in your templates. Use the shortcode format [SLS-{identifier}] to display the translated string. The identifier is uesed as a key and it can be numbers, letters and underscores only in <strong>english</strong>.', 'simple-language-switcher') . '</p>';
+        echo '<p>' . __('Add translatable strings that you can use in your templates. you can display these strings by shortcode or using the block "Translatable String" in the Gutenberg editor.<br>
+        The identifier is uesed as a key and it can be numbers, letters and underscores only in <strong>english</strong>.<br>
+        <strong>Note:</strong> if you use a WordPress Block theme, it\'s recommended to use only the block "Translatable String" in the Gutenberg editor and disable the shortcodes support in the Display settings Tab.', 'simple-language-switcher') . '</p>';
     }
 
     public function sanitize_translatable_strings($input) {

@@ -2,16 +2,20 @@ const { registerBlockType } = wp.blocks;
 const { SelectControl } = wp.components;
 const { useState, useEffect } = wp.element;
 const { __ } = wp.i18n;
-const { createElement } = wp.element;
-const { apiFetch } = wp;
+const { useBlockProps, BlockControls } = wp.blockEditor;
 
 registerBlockType('simple-language-switcher/translatable-string', {
-    edit: function(props) {
+    apiVersion: 3,
+    
+    edit: function Edit(props) {
         const { attributes, setAttributes } = props;
         const [strings, setStrings] = useState(null);
+        const blockProps = useBlockProps({
+            draggable: true
+        });
         
         useEffect(() => {
-            apiFetch({ 
+            wp.apiFetch({ 
                 path: '/simple-language-switcher/v1/strings'
             }).then(fetchedStrings => {
                 setStrings(fetchedStrings);
@@ -19,11 +23,17 @@ registerBlockType('simple-language-switcher/translatable-string', {
         }, []);
 
         if (!strings) {
-            return createElement('p', {}, __('Loading...', 'simple-language-switcher'));
+            return wp.element.createElement('div', 
+                { ...blockProps },
+                __('Loading...', 'simple-language-switcher')
+            );
         }
 
         if (strings.length === 0) {
-            return createElement('p', {}, __('No translatable strings found. Please add some in the Settings > Translatable Strings page.', 'simple-language-switcher'));
+            return wp.element.createElement('div',
+                { ...blockProps },
+                __('No translatable strings found. Please add some in the Settings > Translatable Strings page.', 'simple-language-switcher')
+            );
         }
 
         const options = strings.map(string => ({
@@ -36,28 +46,38 @@ registerBlockType('simple-language-switcher/translatable-string', {
             value: '' 
         });
 
-        return createElement('div', 
-            { className: 'sls-translatable-string-block' },
+        return wp.element.createElement(
+            wp.element.Fragment,
+            null,
             [
-                createElement(SelectControl, {
-                    key: 'select',
-                    label: __('Select Translatable String', 'simple-language-switcher'),
-                    value: attributes.identifier,
-                    options: options,
-                    onChange: (identifier) => setAttributes({ identifier })
-                }),
-                attributes.identifier && createElement('div',
+                wp.element.createElement(BlockControls, { key: 'controls' }),
+                wp.element.createElement('div', 
                     { 
-                        key: 'preview',
-                        className: 'sls-preview'
+                        ...blockProps,
+                        className: `${blockProps.className} sls-translatable-string-block`
                     },
-                    strings.find(s => s.identifier === attributes.identifier)?.value
+                    [
+                        wp.element.createElement(SelectControl, {
+                            key: 'select',
+                            label: __('Select Translatable String', 'simple-language-switcher'),
+                            value: attributes.identifier,
+                            options: options,
+                            onChange: (identifier) => setAttributes({ identifier })
+                        }),
+                        attributes.identifier && wp.element.createElement('div',
+                            { 
+                                key: 'preview',
+                                className: 'sls-preview'
+                            },
+                            strings.find(s => s.identifier === attributes.identifier)?.value
+                        )
+                    ]
                 )
             ]
         );
     },
 
-    save: function() {
+    save: function Save() {
         return null;
     }
 });

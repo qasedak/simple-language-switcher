@@ -105,7 +105,7 @@ function register_translatable_string_block() {
     wp_register_script(
         'sls-translatable-string-editor',
         plugins_url('blocks/translatable-string/build/index.js', __FILE__),
-        ['wp-blocks', 'wp-i18n', 'wp-element', 'wp-editor', 'wp-components', 'wp-api-fetch'],
+        ['wp-blocks', 'wp-i18n', 'wp-element', 'wp-block-editor', 'wp-components', 'wp-api-fetch'],
         filemtime(plugin_dir_path(__FILE__) . 'blocks/translatable-string/build/index.js')
     );
 
@@ -124,10 +124,18 @@ function render_translatable_string_block($attributes) {
         return '';
     }
 
+    $wrapper_attributes = get_block_wrapper_attributes([
+        'class' => 'wp-block-simple-language-switcher-translatable-string'
+    ]);
+
     $strings = get_option('sls_translatable_strings', []);
     foreach ($strings as $string) {
         if ($string['identifier'] === $attributes['identifier']) {
-            return pll__($string['value'], 'simple-language-switcher');
+            return sprintf(
+                '<div %1$s>%2$s</div>',
+                $wrapper_attributes,
+                pll__($string['value'], 'simple-language-switcher')
+            );
         }
     }
     return '';
