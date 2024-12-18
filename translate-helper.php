@@ -54,6 +54,7 @@ function replace_author_with_display_name($display_name) {
 add_filter('the_author', 'replace_author_with_display_name');
 add_filter('get_the_author_display_name', 'replace_author_with_display_name');
 
+// Function to register the translatable strings
 function register_translatable_strings() {
     $strings = get_option('sls_translatable_strings', []);
     foreach ($strings as $string) {
@@ -64,8 +65,8 @@ function register_translatable_strings() {
 }
 add_action('admin_init', 'register_translatable_strings');
 
+// Function to handle the translatable string shortcode
 function handle_translatable_string_shortcode($atts, $content, $tag) {
-    // Extract identifier from shortcode tag (removes 'SLS-' prefix)
     $identifier = substr($tag, 4);
     
     $strings = get_option('sls_translatable_strings', []);
@@ -77,6 +78,46 @@ function handle_translatable_string_shortcode($atts, $content, $tag) {
     return '';
 }
 
+// Function to register the translatable string block
+function register_translatable_string_block() {
+    register_block_type( __DIR__ . '/blocks/translatable-string', [
+        'render_callback' => 'render_translatable_string_block',
+        'editor_script' => 'sls-translatable-string-editor',
+        'editor_style' => 'sls-translatable-string-editor',
+    ]);
+
+    wp_register_script(
+        'sls-translatable-string-editor',
+        plugins_url('blocks/translatable-string/build/index.js', __FILE__),
+        ['wp-blocks', 'wp-i18n', 'wp-element', 'wp-editor', 'wp-components', 'wp-api-fetch'],
+        filemtime(plugin_dir_path(__FILE__) . 'blocks/translatable-string/build/index.js')
+    );
+
+    wp_register_style(
+        'sls-translatable-string-editor',
+        plugins_url('blocks/translatable-string/editor.css', __FILE__),
+        [],
+        filemtime(plugin_dir_path(__FILE__) . 'blocks/translatable-string/editor.css')
+    );
+}
+add_action('init', 'register_translatable_string_block');
+
+// Function to render the translatable string block
+function render_translatable_string_block( $attributes ) {
+    if ( empty( $attributes['identifier'] ) ) {
+        return '';
+    }
+
+    $strings = get_option( 'sls_translatable_strings', [] );
+    foreach ( $strings as $string ) {
+        if ( $string['identifier'] === $attributes['identifier'] ) {
+            return pll__( $string['value'], 'simple-language-switcher' );
+        }
+    }
+    return '';
+}
+
+// Shortcodes function for translatable strings (used for old wordpress themes that use shortcodes)
 function register_translatable_string_shortcodes() {
     $strings = get_option('sls_translatable_strings', []);
     foreach ($strings as $string) {
@@ -86,4 +127,17 @@ function register_translatable_string_shortcodes() {
     }
 }
 add_action('init', 'register_translatable_string_shortcodes');
+
+// Register REST route for fetching translatable strings
+function register_translatable_strings_rest_route() {
+    register_rest_route('simple-language-switcher/v1', '/strings', [
+        'methods' => 'GET',
+        'callback' => function() {
+            return get_option('sls_translatable_strings', []);
+        },
+        'permission_callback' => '__return_true',
+        'args' => [],
+    ]);
+}
+add_action('rest_api_init', 'register_translatable_strings_rest_route');
 

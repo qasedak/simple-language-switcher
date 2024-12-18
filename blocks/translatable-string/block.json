@@ -1,0 +1,21 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "simple-language-switcher/translatable-string",
+  "version": "1.0.0",
+  "title": "Translatable String",
+  "category": "text",
+  "icon": "translation",
+  "description": "Display a translatable string across different languages",
+  "attributes": {
+    "identifier": {
+      "type": "string"
+    }
+  },
+  "supports": {
+    "html": false
+  },
+  "textdomain": "simple-language-switcher",
+  "editorScript": "sls-translatable-string-editor",
+  "editorStyle": "sls-translatable-string-editor"
+}

@@ -1,0 +1,11 @@
+{
+  "name": "simple-language-switcher",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "wp-scripts build blocks/translatable-string/index.js --output-path=blocks/translatable-string/build",
+    "start": "wp-scripts start blocks/translatable-string/index.js --output-path=blocks/translatable-string/build"
+  },
+  "devDependencies": {
+    "@wordpress/scripts": "^30.7.0"
+  }
+} 
