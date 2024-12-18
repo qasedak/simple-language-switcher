@@ -1,7 +1,7 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Simple Language Switcher 1.8\n"
+"Project-Id-Version: Simple Language Switcher 1.9 RC\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
@@ -13,108 +13,128 @@ msgstr ""
 "X-Generator: Poedit 3.5\n"
 "X-Domain: simple-language-switcher\n"
 
-#: simple-language-switcher.php:20
-msgid "Polylang not activated"
-msgstr ""
-
-#: simple-language-switcher.php:33
+#: simple-language-switcher.php:45
 msgid "Select Language"
 msgstr ""
 
-#: simple-language-switcher.php:110
+#: simple-language-switcher.php:138
 msgid "This plugin requires Polylang to be installed and activated."
 msgstr ""
 
-#: admin-settings.php:31
+#: admin-settings.php:51
 msgid "Simple Language Switcher Settings"
 msgstr ""
 
-#: admin-settings.php:32
+#: admin-settings.php:52
 msgid "Language Switcher"
 msgstr ""
 
-#: admin-settings.php:51
+#: admin-settings.php:98
 msgid "Display Settings"
 msgstr ""
 
-#: admin-settings.php:60
+#: admin-settings.php:98
 msgid "Configure how the language switcher appears on your site."
 msgstr ""
 
-#: admin-settings.php:61
+#: admin-settings.php:99
 msgid "Note: You can use the shortcode [simple-language-switcher] to display the language switcher in any post or page and the Language Popup's title (Available Languages) is translatable in Polylang settings."
 msgstr ""
 
-#: admin-settings.php:66
+#: admin-settings.php:105
 msgid "Show Flags"
 msgstr ""
 
-#: admin-settings.php:67
+#: admin-settings.php:106
 msgid "Display country flags using Polylang's built-in flag system"
 msgstr ""
 
-#: admin-settings.php:70
+#: admin-settings.php:109
 msgid "Show Language Names"
 msgstr ""
 
-#: admin-settings.php:72
+#: admin-settings.php:110
 msgid "Display the full language names"
 msgstr ""
 
-#: admin-settings.php:75
+#: admin-settings.php:113
 msgid "Hide Current Language"
 msgstr ""
 
-#: admin-settings.php:76
+#: admin-settings.php:114
 msgid "Hide the current language from the language list"
 msgstr ""
 
-#: admin-settings.php:79
+#: admin-settings.php:117
 msgid "Hide Untranslated Languages"
 msgstr ""
 
-#: admin-settings.php:80
+#: admin-settings.php:118
 msgid "Hide languages that don't have translations for the current content"
 msgstr ""
 
-#: admin-settings.php:84
+#: admin-settings.php:121
 msgid "Translate Author Display Names"
 msgstr ""
 
-#: admin-settings.php:85
+#: admin-settings.php:122
 msgid "Enable translation of author display names across languages through Polylang"
 msgstr ""
 
-#: admin-settings.php:177
+#: admin-settings.php:125
+msgid "Enable Shortcodes Support"
+msgstr ""
+
+#: admin-settings.php:126
+msgid "Enable support for shortcodes (disable if you only use blocks for better performance)"
+msgstr ""
+
+#: admin-settings.php:172
 msgid "Translatable Strings"
 msgstr ""
 
-#: admin-settings.php:149
-msgid "Add translatable strings that you can use in your templates. Use the shortcode format [SLS-{identifier}] to display the translated string. The identifier is uesed as a key and it can be numbers, letters and underscores only in <strong>english</strong>."
+#: admin-settings.php:172
+msgid "Add translatable strings that you can use in your templates. you can display these strings by shortcode or using the block \"Translatable String\" in the Gutenberg editor.\nThe identifier is uesed as a key and it can be numbers, letters and underscores only in <strong>english</strong>.\n<strong>Note:</strong> if you use a WordPress Block theme, it's recommended to use only the block \"Translatable String\" in the Gutenberg editor and disable the shortcodes support in the Display settings Tab."
 msgstr ""
 
-#: admin-settings.php:192
+#: admin-settings.php:217
 msgid "Identifier"
 msgstr ""
 
-#: admin-settings.php:193
+#: admin-settings.php:218
 msgid "Value"
 msgstr ""
 
-#: admin-settings.php:194
+#: admin-settings.php:219
 msgid "Shortcode"
 msgstr ""
 
-#: admin-settings.php:195
+#: admin-settings.php:220
 msgid "Action"
 msgstr ""
 
-#: admin-settings.php:213
+#: admin-settings.php:238
 msgid "Remove"
 msgstr ""
 
-#: admin-settings.php:220
+#: admin-settings.php:245
 msgid "Add String"
+msgstr ""
+
+#: blocks/translatable-string/index.js:28
+msgid "Loading..."
+msgstr ""
+
+#: blocks/translatable-string/index.js:35
+msgid "No translatable strings found. Please add some in the Settings > Translatable Strings page."
+msgstr ""
+
+#: blocks/translatable-string/index.js:45
+msgid "Select a string"
+msgstr ""
+
+#: blocks/translatable-string/index.js:62
+msgid "Select Translatable String"
 msgstr ""
 
 
