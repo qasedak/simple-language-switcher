@@ -12,7 +12,8 @@ class SimpleLanguageSwitcherSettings {
         'show_flags' => 0,
         'show_names' => 1,
         'hide_current' => 0,
-        'translate_usernames' => 1
+        'translate_usernames' => 1,
+        'enable_shortcodes' => 1
     ];
     private $strings_option_name = 'sls_translatable_strings';
 
@@ -26,6 +27,23 @@ class SimpleLanguageSwitcherSettings {
     private function __construct() {
         add_action('admin_menu', [$this, 'add_settings_page']);
         add_action('admin_init', [$this, 'register_settings']);
+        
+        // Add migration for new settings
+        $this->maybe_migrate_settings();
+    }
+
+    private function maybe_migrate_settings() {
+        $current_settings = get_option($this->option_name);
+        
+        if ($current_settings && !isset($current_settings['enable_shortcodes'])) {
+            // Preserve existing settings and add new default
+            $updated_settings = array_merge(
+                $current_settings,
+                ['enable_shortcodes' => $this->default_settings['enable_shortcodes']]
+            );
+            
+            update_option($this->option_name, $updated_settings);
+        }
     }
 
     public function add_settings_page() {
@@ -48,6 +66,16 @@ class SimpleLanguageSwitcherSettings {
             ]
         );
 
+        // Register strings settings separately
+        register_setting(
+            'sls_strings_options', // New option group
+            $this->strings_option_name,
+            [
+                'sanitize_callback' => [$this, 'sanitize_translatable_strings'],
+                'default' => []
+            ]
+        );
+
         add_settings_section(
             'sls_main_section',
             __('Display Settings', 'simple-language-switcher'),
@@ -57,16 +85,6 @@ class SimpleLanguageSwitcherSettings {
 
         $this->add_settings_fields();
 
-        // Register translatable strings option
-        register_setting(
-            'sls_options',
-            $this->strings_option_name,
-            [
-                'sanitize_callback' => [$this, 'sanitize_translatable_strings'],
-                'default' => []
-            ]
-        );
-        
         // Add new section for translatable strings
         add_settings_section(
             'sls_strings_section',
@@ -102,6 +120,10 @@ class SimpleLanguageSwitcherSettings {
             'translate_usernames' => [
                 'title' => __('Translate Author Display Names', 'simple-language-switcher'),
                 'description' => __('Enable translation of author display names across languages through Polylang', 'simple-language-switcher')
+            ],
+            'enable_shortcodes' => [
+                'title' => __('Enable Shortcodes Support', 'simple-language-switcher'),
+                'description' => __('Enable support for shortcodes (disable if you only use blocks for better performance)', 'simple-language-switcher')
             ]
         ];
 
@@ -141,7 +163,8 @@ class SimpleLanguageSwitcherSettings {
             'show_flags' => !empty($input['show_flags']) ? 1 : 0,
             'show_names' => !empty($input['show_names']) ? 1 : 0,
             'hide_current' => !empty($input['hide_current']) ? 1 : 0,
-            'translate_usernames' => !empty($input['translate_usernames']) ? 1 : 0
+            'translate_usernames' => !empty($input['translate_usernames']) ? 1 : 0,
+            'enable_shortcodes' => !empty($input['enable_shortcodes']) ? 1 : 0
         ];
     }
 
@@ -182,7 +205,7 @@ class SimpleLanguageSwitcherSettings {
                 <div class="strings-manager">
                     <form action="options.php" method="post">
                         <?php
-                        settings_fields('sls_options');
+                        settings_fields('sls_strings_options');
                         do_settings_sections($this->page_slug . '_strings');
                         $strings = get_option($this->strings_option_name, []);
                         ?>
