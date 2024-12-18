@@ -94,7 +94,7 @@ msgid "Translatable Strings"
 msgstr ""
 
 #: admin-settings.php:172
-msgid "Add translatable strings that you can use in your templates. you can display these strings by shortcode or using the block \"Translatable String\" in the Gutenberg editor.\nThe identifier is uesed as a key and it can be numbers, letters and underscores only in <strong>english</strong>.\n<strong>Note:</strong> if you use a WordPress Block theme, it's recommended to use only the block \"Translatable String\" in the Gutenberg editor and disable the shortcodes support in the Display settings Tab."
+msgid "Add translatable strings that you can use in your templates. you can display these strings by shortcode or using the block \"Translatable String\" in the Gutenberg editor.<br>The identifier is uesed as a key and it can be numbers, letters and underscores only in <strong>english</strong>.<br><strong>Note:</strong> if you use a WordPress Block theme, it's recommended to use only the block \"Translatable String\" in the Gutenberg editor and disable the shortcodes support in the Display settings Tab."
 msgstr ""
 
 #: admin-settings.php:217

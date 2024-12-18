@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: Simple Language Switcher 1.9 RC\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2024-12-18 01:50+0330\n"
+"PO-Revision-Date: 2024-12-19 03:17+0330\n"
 "Last-Translator: Mohammad Anbarestany <m_anbarestany@hotmail.com>\n"
 "Language-Team: \n"
 "Language: fa\n"
@@ -95,8 +95,8 @@ msgid "Translatable Strings"
 msgstr "رشته های ترجمه پذیر"
 
 #: admin-settings.php:172
-msgid "Add translatable strings that you can use in your templates. you can display these strings by shortcode or using the block \"Translatable String\" in the Gutenberg editor.\nThe identifier is uesed as a key and it can be numbers, letters and underscores only in <strong>english</strong>.\n<strong>Note:</strong> if you use a WordPress Block theme, it's recommended to use only the block \"Translatable String\" in the Gutenberg editor and disable the shortcodes support in the Display settings Tab."
-msgstr "رشته های ترجمه پذیر را اضافه کنید که می توانید در قالب های خود استفاده کنید. می توانید این رشته ها را با استفاده از کد کوتاه یا با استفاده از بلوک \"رشته ترجمه پذیر\" در ویرایشگر گوتنبرگ نمایش دهید.\nشناسه به عنوان کلید استفاده می شود و فقط می تواند شامل اعداد، حروف و زیرخط به <strong>انگلیسی</strong> باشد.\n<strong>نکته:</strong> اگر از قالب بلوکی وردپرس استفاده می کنید، توصیه می شود فقط از بلوک \"رشته ترجمه پذیر\" در ویرایشگر گوتنبرگ استفاده کنید و پشتیبانی از کدهای کوتاه را در تب تنظیمات نمایش غیرفعال کنید."
+msgid "Add translatable strings that you can use in your templates. you can display these strings by shortcode or using the block \"Translatable String\" in the Gutenberg editor.<br>The identifier is uesed as a key and it can be numbers, letters and underscores only in <strong>english</strong>.<br><strong>Note:</strong> if you use a WordPress Block theme, it's recommended to use only the block \"Translatable String\" in the Gutenberg editor and disable the shortcodes support in the Display settings Tab."
+msgstr "رشته های قابل ترجمه را اضافه کنید که می توانید در قالب های خود استفاده کنید. می توانید این رشته ها را با کد کوتاه یا با استفاده از بلاک \"Translatable String\" در ویرایشگر گوتنبرگ نمایش دهید.<br> شناسه به عنوان یک کلید استفاده می شود و فقط به <strong>زبان انگلیسی</strong> می تواند اعداد، حروف و زیرخط باشد.<br> <strong>توجه:</strong> اگر از تم بلاک وردپرس استفاده می کنید، توصیه می شود فقط از بلاک \"Translatable String\" در ویرایشگر گوتنبرگ استفاده کنید و پشتیبانی از کدهای کوتاه را در سربرگ تنظیمات نمایش غیرفعال کنید."
 
 #: admin-settings.php:217
 msgid "Identifier"
