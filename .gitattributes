@@ -1,7 +1,7 @@
 # Auto detect text files and perform LF normalization
 * text=auto
 
-# Exclude common development files from GitHub releases
+# Exclude development files from GitHub releases
 .gitattributes export-ignore
 .gitignore export-ignore
 .git export-ignore

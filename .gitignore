@@ -1,10 +1,6 @@
 # Dependencies
 /node_modules
 
-# Build files
-/blocks/*/build
-/blocks/*/node_modules
-
 # IDE and System files
 .DS_Store
 .idea
