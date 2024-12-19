@@ -17,9 +17,10 @@ Simple Language Switcher is a lightweight WordPress plugin that provides a clean
 
 ## Installation
 
-1. **Upload the Plugin Files**: Upload the `simple-language-switcher` folder to the `/wp-content/plugins/` directory.
-2. **Activate the Plugin**: Activate the plugin through the 'Plugins' menu in WordPress.
-3. **Ensure Polylang is Installed**: Make sure the Polylang plugin is installed and activated.
+1. Download the latest release from the [GitHub Releases page](https://github.com/qasedak/simple-language-switcher/releases)
+2. Upload the ZIP file through WordPress plugin installer, or extract to `/wp-content/plugins/`
+3. Activate the plugin through the 'Plugins' menu in WordPress
+4. Ensure Polylang is installed and activated
 
 ## Usage
 
