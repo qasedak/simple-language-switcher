@@ -23,7 +23,7 @@ jobs:
           if [ -d "vendor" ]; then
             git add -f vendor
           fi
-          git commit -m "Update files"
+          git diff-index --quiet HEAD -- || git commit -m "Update files"
 
       - name: Build ZIP
         run: |
