@@ -1,0 +1,63 @@
+name: Generate Installable Plugin, and Upload as Release Asset
+on:
+  release:
+    types: [ published ]
+jobs:
+  build:
+    name: Create & Upload ZIP
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Build composer
+        run: |
+          mkdir build
+#          composer install --no-dev --optimize-autoloader
+
+      - name: Setup git
+        run: |
+          git config user.name "GitHub Actions Bot"
+          git config user.email "<>"
+          git add -A .
+          if [ -d "vendor" ]; then
+            git add -f vendor
+          fi
+          git diff-index --quiet HEAD -- || git commit -m "Update files"
+
+      - name: Build ZIP
+        run: |
+          git archive -o build/${{ github.event.repository.name }}-${{ github.ref_name }}.zip --prefix ${{ github.event.repository.name }}/ HEAD          
+          ls
+
+      - name: Get Build Files
+        id: get-build-files
+        run: |
+          ZIP_FILES=$(find build -type f -name "*.zip")
+          JSON_OUTPUT="{"
+          if [ -n "$ZIP_FILES" ]; then
+            for file in $ZIP_FILES; do
+              JSON_OUTPUT="$JSON_OUTPUT\"$(basename "$file")\": \"$file\", "
+            done
+            JSON_OUTPUT="${JSON_OUTPUT::-2}}"
+            echo $JSON_OUTPUT
+          else
+            echo "No .zip files found in the build folder."
+            JSON_OUTPUT="}"
+          fi
+          echo "files=$JSON_OUTPUT" >> $GITHUB_OUTPUT
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: Build Files
+          path: build/*.zip
+
+      - name: Upload to release
+        uses: svenstaro/upload-release-action@master
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          tag: ${{ github.ref_name }}
+          file: build/*.zip
+          file_glob: true
+          overwrite: true
