@@ -30,6 +30,9 @@ class SimpleLanguageSwitcherSettings {
         
         // Add migration for new settings
         $this->maybe_migrate_settings();
+
+        // Register settings link
+        $this->register_settings_link();
     }
 
     private function maybe_migrate_settings() {
@@ -277,6 +280,18 @@ class SimpleLanguageSwitcherSettings {
             <?php endif; ?>
         </div>
         <?php
+    }
+
+    // Settings link for SLS
+    private function register_settings_link() {
+        $plugin_basename = plugin_basename(dirname(__FILE__) . '/simple-language-switcher.php');
+        add_filter("plugin_action_links_$plugin_basename", function($links) {
+            array_unshift($links, sprintf(
+                '<a href="options-general.php?page=simple-language-switcher">%s</a>',
+                esc_html__('Settings', 'simple-language-switcher')
+            ));
+            return $links;
+        });
     }
 }
 
