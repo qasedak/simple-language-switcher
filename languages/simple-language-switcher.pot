@@ -1,3 +1,5 @@
+# Copyright (C) 2024 Mohammad Anbarestany
+# This file is distributed under the same license as the Simple Language Switcher plugin.
 #, fuzzy
 msgid ""
 msgstr ""
@@ -12,6 +14,18 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 3.5\n"
 "X-Domain: simple-language-switcher\n"
+
+#. Plugin Name of the plugin/theme
+msgid "Simple Language Switcher"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "A simple language switcher plugin that works with Polylang. It allows you to display a language switcher in any page or post using a shortcode or block."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "MACSE"
+msgstr ""
 
 #: simple-language-switcher.php:45
 msgid "Select Language"
