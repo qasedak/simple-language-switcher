@@ -7,7 +7,7 @@
  * Version: 1.9 RC
  * Requires at least: 5.0
  * Requires PHP: 7.4
- * Author: MACSE
+ * Author: Mohammad Anbarestany
  * Author URI: https://anbarestany.ir/
  * License: GPLv3
  * License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -113,7 +113,9 @@ function display_translated_post_links()
 }
 
 // Register shortcode for language links
+// [translated_links] is deprecated, use [super-language-switcher] instead
 add_shortcode('translated_links', 'display_translated_post_links');
+add_shortcode( 'super-language-switcher', 'display_translated_post_links' );
 
 // Enqueue styles and scripts
 function translated_links_enqueue_styles_and_scripts()

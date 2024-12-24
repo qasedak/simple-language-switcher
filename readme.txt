@@ -1,5 +1,5 @@
 === Simple Language Switcher ===
-Contributors: macse
+Contributors: Mohammad Anbarestany
 Tags: language, switcher, polylang, multilingual, languages, translation
 Requires at least: 5.0
 Tested up to: 6.6

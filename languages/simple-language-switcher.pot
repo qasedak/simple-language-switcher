@@ -24,7 +24,7 @@ msgid "A simple language switcher plugin that works with Polylang. It allows you
 msgstr ""
 
 #. Author of the plugin/theme
-msgid "MACSE"
+msgid "Mohammad Anbarestany"
 msgstr ""
 
 #: simple-language-switcher.php:45
@@ -51,8 +51,12 @@ msgstr ""
 msgid "Configure how the language switcher appears on your site."
 msgstr ""
 
-#: admin-settings.php:99
-msgid "Note: You can use the shortcode [simple-language-switcher] to display the language switcher in any post or page and the Language Popup's title (Available Languages) is translatable in Polylang settings."
+#: admin-settings.php:102
+msgid "Note: You can use the shortcode [super-language-switcher] to display the language switcher in any post or page and the Language Popup's title (Available Languages) is translatable in Polylang settings."
+msgstr ""
+
+#: admin-settings.php:103
+msgid "Warning: The shortcode [translated_links] is deprecated and will be removed in next versions."
 msgstr ""
 
 #: admin-settings.php:105

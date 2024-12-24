@@ -39,8 +39,8 @@ msgid "Configure how the language switcher appears on your site."
 msgstr "نحوه نمایش سوییچ زبان در سایت خود را پیکربندی کنید."
 
 #: admin-settings.php:99
-msgid "Note: You can use the shortcode [simple-language-switcher] to display the language switcher in any post or page and the Language Popup's title (Available Languages) is translatable in Polylang settings."
-msgstr "نکته: به کمک شورت کد [simple-language-switcher] می توانید سوییج زبان را در هرجا کی بخواهید به نمایش دربیاورید و عنوان پاپ‌آپ زبان (Available Languages) در بخش ترجمه Polylang قابل شخصی سازی و ترجمه است."
+msgid "Note: You can use the shortcode [super-language-switcher] to display the language switcher in any post or page and the Language Popup's title (Available Languages) is translatable in Polylang settings."
+msgstr "نکته: به کمک شورت کد [super-language-switcher] می توانید سوییج زبان را در هرجا کی بخواهید به نمایش دربیاورید و عنوان پاپ‌آپ زبان (Available Languages) در بخش ترجمه Polylang قابل شخصی سازی و ترجمه است."
 
 #: admin-settings.php:105
 msgid "Show Flags"
