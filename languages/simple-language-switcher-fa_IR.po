@@ -1,139 +1,235 @@
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Simple Language Switcher 1.9 RC\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: \n"
-"PO-Revision-Date: 2024-12-19 03:17+0330\n"
-"Last-Translator: Mohammad Anbarestany <m_anbarestany@hotmail.com>\n"
-"Language-Team: \n"
-"Language: fa\n"
+"POT-Creation-Date: 2024-12-25 00:09+0000\n"
+"PO-Revision-Date: 2024-12-25 00:09+0000\n"
+"Last-Translator: \n"
+"Language-Team: فارسی\n"
+"Language: fa_IR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 3.5\n"
+"X-Generator: Loco https://localise.biz/\n"
 "X-Domain: simple-language-switcher\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Loco-Version: 2.6.14; wp-6.7.1"
+
+#. Description of the plugin
+#: simple-language-switcher.php
+msgid ""
+"A lightweight language switcher plugin that displays a clean, modal-style "
+"language selection popup. Compatible with Polylang."
+msgstr ""
+"یک افزونه سبک برای تغییر زبان که یک پاپ آپ انتخاب زبان به سبک مودال را نمایش "
+"می دهد."
+
+#: admin-settings.php:231
+msgid "Action"
+msgstr "عملیات"
+
+#: admin-settings.php:256
+msgid "Add String"
+msgstr "افزودن رشته"
+
+#: admin-settings.php:176
+msgid ""
+"Add translatable strings that you can use in your templates. you can display "
+"these strings by shortcode or using the block \"Translatable String\" in the "
+"Gutenberg editor.<br>The identifier is uesed as a key and it can be numbers, "
+"letters and underscores only in <strong>english</strong>.<br><strong>Note:"
+"</strong> if you use a WordPress Block theme, it's recommended to use only "
+"the block \"Translatable String\" in the Gutenberg editor and disable the "
+"shortcodes support in the Display settings Tab."
+msgstr ""
+"رشته های قابل ترجمه را اضافه کنید که می توانید در قالب های خود استفاده کنید. "
+"می توانید این رشته ها را با کد کوتاه یا با استفاده از بلاک \"Translatable "
+"String\" در ویرایشگر گوتنبرگ نمایش دهید.<br> شناسه به عنوان یک کلید استفاده "
+"می شود و فقط به <strong>زبان انگلیسی</strong> می تواند اعداد، حروف و زیرخط "
+"باشد.<br> <strong>توجه:</strong> اگر از تم بلاک وردپرس استفاده می کنید، "
+"توصیه می شود فقط از بلاک \"Translatable String\" در ویرایشگر گوتنبرگ استفاده "
+"کنید و پشتیبانی از کدهای کوتاه را در سربرگ تنظیمات نمایش غیرفعال کنید."
+
+#: admin-settings.php:179
+msgid ""
+"After adding Translatable string you can translate them through Polylang"
+msgstr "پس از افزودن متون ترجمه پذیر می توانید آنها را در Polylang ترجمه کنید"
+
+#: blocks/translatable-string/block.json
+msgctxt "block description"
+msgid "Display a translatable string across different languages"
+msgstr "نمایش متون ترجمه پذیر در زبان های مختلف"
+
+#: blocks/translatable-string/block.json
+msgctxt "block title"
+msgid "Translatable String"
+msgstr "متون ترجمه پذیر"
+
+#: admin-settings.php:101
+msgid "Configure how the language switcher appears on your site."
+msgstr "نحوه نمایش سوییچ زبان در سایت خود را پیکربندی کنید."
+
+#: admin-settings.php:110
+msgid "Display country flags using Polylang's built-in flag system"
+msgstr "نمایش پرچم کشورها با استفاده از سیستم پرچم داخلی Polylang"
+
+#: admin-settings.php:84 admin-settings.php:210
+msgid "Display Settings"
+msgstr "تنظیمات نمایش"
+
+#: admin-settings.php:114
+msgid "Display the full language names"
+msgstr "نمایش نام کامل زبان‌ها (با حروف خودشان)"
+
+#: admin-settings.php:129
+msgid "Enable Shortcodes Support"
+msgstr "فعال‌سازی پشتیبانی از کدهای کوتاه"
+
+#: admin-settings.php:130
+msgid ""
+"Enable support for shortcodes (disable if you only use blocks for better "
+"performance)"
+msgstr ""
+"فعال‌سازی پشتیبانی از کدهای کوتاه (اگر فقط از بلاک‌ استفاده می‌کنید، برای "
+"عملکرد بهتر غیرفعال کنید)"
+
+#: admin-settings.php:126
+msgid ""
+"Enable translation of author display names across languages through Polylang"
+msgstr "فعال کردن ترجمه نام نویسندگان در زبان‌های مختلف از طریق Polylang"
+
+#: admin-settings.php:183
+msgid "here"
+msgstr "اینجا کلیک کنید"
+
+#: admin-settings.php:117
+msgid "Hide Current Language"
+msgstr "مخفی کردن زبان فعلی"
+
+#: admin-settings.php:122
+msgid "Hide languages that don't have translations for the current content"
+msgstr "مخفی کردن زبان‌هایی که برای محتوای فعلی ترجمه ندارند"
+
+#: admin-settings.php:118
+msgid "Hide the current language from the language list"
+msgstr "مخفی کردن زبان فعلی از لیست زبان‌ها"
+
+#: admin-settings.php:121
+msgid "Hide Untranslated Languages"
+msgstr "مخفی کردن زبان‌های ترجمه نشده"
+
+#. Author URI of the plugin
+#: simple-language-switcher.php
+msgid "https://anbarestany.ir/"
+msgstr "https://anbarestany.ir/"
+
+#. Plugin URI of the plugin
+#: simple-language-switcher.php
+msgid ""
+"https://anbarestany.ir/simple-language-switcher-a-clean-modal-language-"
+"switcher-for-wordpress/"
+msgstr ""
+"https://anbarestany.ir/simple-language-switcher-a-clean-modal-language-"
+"switcher-for-wordpress/"
+
+#: admin-settings.php:228
+msgid "Identifier"
+msgstr "شناسه"
+
+#: admin-settings.php:55
+msgid "Language Switcher"
+msgstr "سوییچ زبان"
+
+#: blocks/translatable-string/build/index.js:1
+#: blocks/translatable-string/index.js:28
+msgid "Loading..."
+msgstr "در حال بارگذاری..."
+
+#. Author of the plugin
+#: simple-language-switcher.php
+msgid "Mohammad Anbarestany"
+msgstr "محمد عنبرستانی"
+
+#: blocks/translatable-string/build/index.js:1
+#: blocks/translatable-string/index.js:35
+msgid ""
+"No translatable strings found. Please add some in the Settings > "
+"Translatable Strings page."
+msgstr ""
+"هیچ رشته ترجمه پذیر‌ای یافت نشد. لطفاً در صفحه تنظیمات > رشته‌های ترجمه "
+"پذیر، تعدادی اضافه کنید."
+
+#: admin-settings.php:102
+msgid ""
+"Note: You can use the shortcode [super-language-switcher] to display the "
+"language switcher in any post or page and the Language Popup's title "
+"(Available Languages) is translatable in Polylang settings."
+msgstr ""
+"نکته: به کمک شورت کد [super-language-switcher] می توانید سوییج زبان را در "
+"هرجا کی بخواهید به نمایش دربیاورید و عنوان پاپ‌آپ زبان (Available Languages) "
+"در بخش ترجمه Polylang قابل شخصی سازی و ترجمه است."
+
+#: admin-settings.php:249 admin-settings.php:270
+msgid "Remove"
+msgstr "حذف"
+
+#: blocks/translatable-string/build/index.js:1
+#: blocks/translatable-string/index.js:45
+msgid "Select a string"
+msgstr "یک رشته انتخاب کنید"
 
 #: simple-language-switcher.php:45
 msgid "Select Language"
 msgstr "انتخاب زبان"
 
-#: simple-language-switcher.php:138
-msgid "This plugin requires Polylang to be installed and activated."
-msgstr "این افزونه نیاز به نصب و فعال‌سازی پلاگین Polylang دارد."
-
-#: admin-settings.php:51
-msgid "Simple Language Switcher Settings"
-msgstr "تنظیمات سوییچ زبان"
-
-#: admin-settings.php:52
-msgid "Language Switcher"
-msgstr "سوییچ زبان"
-
-#: admin-settings.php:98
-msgid "Display Settings"
-msgstr "تنظیمات نمایش"
-
-#: admin-settings.php:98
-msgid "Configure how the language switcher appears on your site."
-msgstr "نحوه نمایش سوییچ زبان در سایت خود را پیکربندی کنید."
-
-#: admin-settings.php:99
-msgid "Note: You can use the shortcode [super-language-switcher] to display the language switcher in any post or page and the Language Popup's title (Available Languages) is translatable in Polylang settings."
-msgstr "نکته: به کمک شورت کد [super-language-switcher] می توانید سوییج زبان را در هرجا کی بخواهید به نمایش دربیاورید و عنوان پاپ‌آپ زبان (Available Languages) در بخش ترجمه Polylang قابل شخصی سازی و ترجمه است."
-
-#: admin-settings.php:105
-msgid "Show Flags"
-msgstr "نمایش پرچم‌ها"
-
-#: admin-settings.php:106
-msgid "Display country flags using Polylang's built-in flag system"
-msgstr "نمایش پرچم کشورها با استفاده از سیستم پرچم داخلی Polylang"
-
-#: admin-settings.php:109
-msgid "Show Language Names"
-msgstr "نمایش نام زبان‌ها"
-
-#: admin-settings.php:110
-msgid "Display the full language names"
-msgstr "نمایش نام کامل زبان‌ها (با حروف خودشان)"
-
-#: admin-settings.php:113
-msgid "Hide Current Language"
-msgstr "مخفی کردن زبان فعلی"
-
-#: admin-settings.php:114
-msgid "Hide the current language from the language list"
-msgstr "مخفی کردن زبان فعلی از لیست زبان‌ها"
-
-#: admin-settings.php:117
-msgid "Hide Untranslated Languages"
-msgstr "مخفی کردن زبان‌های ترجمه نشده"
-
-#: admin-settings.php:118
-msgid "Hide languages that don't have translations for the current content"
-msgstr "مخفی کردن زبان‌هایی که برای محتوای فعلی ترجمه ندارند"
-
-#: admin-settings.php:121
-msgid "Translate Author Display Names"
-msgstr "ترجمه نام نویسندگان"
-
-#: admin-settings.php:122
-msgid "Enable translation of author display names across languages through Polylang"
-msgstr "فعال کردن ترجمه نام نویسندگان در زبان‌های مختلف از طریق Polylang"
-
-#: admin-settings.php:125
-msgid "Enable Shortcodes Support"
-msgstr "فعال‌سازی پشتیبانی از کدهای کوتاه"
-
-#: admin-settings.php:126
-msgid "Enable support for shortcodes (disable if you only use blocks for better performance)"
-msgstr "فعال‌سازی پشتیبانی از کدهای کوتاه (اگر فقط از بلاک‌ استفاده می‌کنید، برای عملکرد بهتر غیرفعال کنید)"
-
-#: admin-settings.php:172
-msgid "Translatable Strings"
-msgstr "رشته های ترجمه پذیر"
-
-#: admin-settings.php:172
-msgid "Add translatable strings that you can use in your templates. you can display these strings by shortcode or using the block \"Translatable String\" in the Gutenberg editor.<br>The identifier is uesed as a key and it can be numbers, letters and underscores only in <strong>english</strong>.<br><strong>Note:</strong> if you use a WordPress Block theme, it's recommended to use only the block \"Translatable String\" in the Gutenberg editor and disable the shortcodes support in the Display settings Tab."
-msgstr "رشته های قابل ترجمه را اضافه کنید که می توانید در قالب های خود استفاده کنید. می توانید این رشته ها را با کد کوتاه یا با استفاده از بلاک \"Translatable String\" در ویرایشگر گوتنبرگ نمایش دهید.<br> شناسه به عنوان یک کلید استفاده می شود و فقط به <strong>زبان انگلیسی</strong> می تواند اعداد، حروف و زیرخط باشد.<br> <strong>توجه:</strong> اگر از تم بلاک وردپرس استفاده می کنید، توصیه می شود فقط از بلاک \"Translatable String\" در ویرایشگر گوتنبرگ استفاده کنید و پشتیبانی از کدهای کوتاه را در سربرگ تنظیمات نمایش غیرفعال کنید."
-
-#: admin-settings.php:217
-msgid "Identifier"
-msgstr "شناسه"
-
-#: admin-settings.php:218
-msgid "Value"
-msgstr "متن"
-
-#: admin-settings.php:219
-msgid "Shortcode"
-msgstr "کدکوتاه"
-
-#: admin-settings.php:220
-msgid "Action"
-msgstr "عملیات"
-
-#: admin-settings.php:238
-msgid "Remove"
-msgstr "حذف"
-
-#: admin-settings.php:245
-msgid "Add String"
-msgstr "افزودن رشته"
-
-#: blocks/translatable-string/index.js:28
-msgid "Loading..."
-msgstr "در حال بارگذاری..."
-
-#: blocks/translatable-string/index.js:35
-msgid "No translatable strings found. Please add some in the Settings > Translatable Strings page."
-msgstr "هیچ رشته ترجمه پذیر‌ای یافت نشد. لطفاً در صفحه تنظیمات > رشته‌های ترجمه پذیر، تعدادی اضافه کنید."
-
-#: blocks/translatable-string/index.js:45
-msgid "Select a string"
-msgstr "یک رشته انتخاب کنید"
-
+#: blocks/translatable-string/build/index.js:1
 #: blocks/translatable-string/index.js:62
 msgid "Select Translatable String"
 msgstr "انتخاب رشته ترجمه پذیر"
+
+#: admin-settings.php:300
+msgid "Settings"
+msgstr "تنظیمات"
+
+#: admin-settings.php:230
+msgid "Shortcode"
+msgstr "کدکوتاه"
+
+#: admin-settings.php:109
+msgid "Show Flags"
+msgstr "نمایش پرچم‌ها"
+
+#: admin-settings.php:113
+msgid "Show Language Names"
+msgstr "نمایش نام زبان‌ها"
+
+#. Plugin Name of the plugin
+#: simple-language-switcher.php
+msgid "Simple Language Switcher"
+msgstr "سوییچ ساده زبان"
+
+#: admin-settings.php:54
+msgid "Simple Language Switcher Settings"
+msgstr "تنظیمات سوییچ زبان"
+
+#: simple-language-switcher.php:140
+msgid "This plugin requires Polylang to be installed and activated."
+msgstr "این افزونه نیاز به نصب و فعال‌سازی پلاگین Polylang دارد."
+
+#: admin-settings.php:94 admin-settings.php:213
+msgid "Translatable Strings"
+msgstr "رشته های ترجمه پذیر"
+
+#: admin-settings.php:125
+msgid "Translate Author Display Names"
+msgstr "ترجمه نام نویسندگان"
+
+#: admin-settings.php:229
+msgid "Value"
+msgstr "متن"
+
+#: admin-settings.php:103
+msgid ""
+"Warning: The shortcode [translated_links] is deprecated and will be removed "
+"in next versions."
+msgstr "اخطار: در نسخه های بعدی کدکوتاه [translated_links] منسوخ خواهد شد."
