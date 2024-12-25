@@ -8,12 +8,11 @@ class SimpleLanguageSwitcherSettings {
     private $option_name = 'sls_settings';
     private $page_slug = 'simple-language-switcher';
     private $default_settings = [
-        'hide_untranslated' => 1,
-        'show_flags' => 0,
-        'show_names' => 1,
-        'hide_current' => 0,
-        'translate_usernames' => 1,
-        'enable_shortcodes' => 1
+        'enable_shortcodes' => true,
+        'languages' => [],
+        'display_style' => 'dropdown',
+        'custom_css' => '',
+        'version' => '1.9.0'  // First official release
     ];
     private $strings_option_name = 'sls_translatable_strings';
 
@@ -36,16 +35,12 @@ class SimpleLanguageSwitcherSettings {
     }
 
     private function maybe_migrate_settings() {
-        $current_settings = get_option($this->option_name);
-        
-        if ($current_settings && !isset($current_settings['enable_shortcodes'])) {
-            // Preserve existing settings and add new default
-            $updated_settings = array_merge(
-                $current_settings,
-                ['enable_shortcodes' => $this->default_settings['enable_shortcodes']]
-            );
-            
-            update_option($this->option_name, $updated_settings);
+        $current_settings = get_option($this->option_name, $this->default_settings);
+        $version = isset($current_settings['version']) ? $current_settings['version'] : '1.9.0';
+
+        // Ready for future migrations (2.0.0+)
+        if (version_compare($version, '2.0.0', '<')) {
+            // Future migration code here
         }
     }
 

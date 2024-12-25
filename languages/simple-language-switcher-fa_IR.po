@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Simple Language Switcher 1.9 RC\n"
+"Project-Id-Version: Simple Language Switcher 1.9.0 RC\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-12-25 00:09+0000\n"
 "PO-Revision-Date: 2024-12-25 00:09+0000\n"

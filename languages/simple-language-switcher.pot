@@ -3,7 +3,7 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Simple Language Switcher 1.9 RC\n"
+"Project-Id-Version: Simple Language Switcher 1.9.0 RC\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
 "POT-Creation-Date: 2024-12-25T00:41:45+01:00\n"

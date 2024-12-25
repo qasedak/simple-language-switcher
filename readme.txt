@@ -43,7 +43,7 @@ Simple Language Switcher adds a sleek, modal-style language selector to your Wor
 
 == Changelog ==
 
-= 1.9 RC =
+= 1.9.0 RC =
 * Bug fix: Fixed the issue where saving translatable strings was not working
 * Added Gutenberg block "Translatable String"
 * Added Disable/Enable shortcodes option in settings
@@ -72,7 +72,7 @@ Simple Language Switcher adds a sleek, modal-style language selector to your Wor
 
 == Upgrade Notice ==
 
-= 1.9 RC =
+= 1.9.0 RC =
 This version adds support for Gutenberg blocks and a new option to disable/enable shortcodes in the settings page aslo contains some bug fixes. Upgrade recommended.
 
 == Privacy Policy ==
