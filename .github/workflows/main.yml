@@ -1,63 +1,43 @@
+# GitHub Action: whenever creating a new release of the source code,
+# also create a release of the installable plugin.
+# Steps to execute:
+# - Checkout the source code
+# - Run "composer install" to download all dependencies under vendor/
+# - Create a .zip file, excluding:
+#   - All hidden files (.git, .gitignore, etc)
+#   - All development files, ending in .dist
+#   - All composer files <= after installing dependencies, no need for them anymore
+#   - Markdown files concerning development
+#   - Folder build/ <= created only to store the .zip file
+#   - Folder dev-helpers/ <= not needed for the plugin
+# - Upload the .zip file as an artifact to the action (this step is possibly optional)
+# - Upload the .zip file as a release, for download
 name: Generate Installable Plugin, and Upload as Release Asset
 on:
   release:
-    types: [ published ]
+    types: [published]
 jobs:
   build:
-    name: Create & Upload ZIP
+    name: Upload Release Asset
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-
-      - name: Build composer
+      - name: Build project
         run: |
           mkdir build
-#          composer install --no-dev --optimize-autoloader
-
-      - name: Setup git
-        run: |
-          git config user.name "GitHub Actions Bot"
-          git config user.email "<>"
-          git add -A .
-          if [ -d "vendor" ]; then
-            git add -f vendor
-          fi
-          git diff-index --quiet HEAD -- || git commit -m "Update files"
-
-      - name: Build ZIP
-        run: |
-          git archive -o build/${{ github.event.repository.name }}-${{ github.ref_name }}.zip --prefix ${{ github.event.repository.name }}/ HEAD          
-          ls
-
-      - name: Get Build Files
-        id: get-build-files
-        run: |
-          ZIP_FILES=$(find build -type f -name "*.zip")
-          JSON_OUTPUT="{"
-          if [ -n "$ZIP_FILES" ]; then
-            for file in $ZIP_FILES; do
-              JSON_OUTPUT="$JSON_OUTPUT\"$(basename "$file")\": \"$file\", "
-            done
-            JSON_OUTPUT="${JSON_OUTPUT::-2}}"
-            echo $JSON_OUTPUT
-          else
-            echo "No .zip files found in the build folder."
-            JSON_OUTPUT="}"
-          fi
-          echo "files=$JSON_OUTPUT" >> $GITHUB_OUTPUT
-
+      - name: Create artifact
+        uses: montudor/action-zip@v1
+        with:
+          args: zip -X -r build/simple-language-switcher.zip . -x *.git* node_modules/\* .* "*/\.*" CODE_OF_CONDUCT.md CONTRIBUTING.md ISSUE_TEMPLATE.md PULL_REQUEST_TEMPLATE.md *.dist *.yml *.neon composer.* dev-helpers** build** wporg-assets** phpunit**
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: Build Files
-          path: build/*.zip
-
+            name: simple-language-switcher
+            path: build/simple-language-switcher.zip
       - name: Upload to release
-        uses: svenstaro/upload-release-action@master
+        uses: JasonEtco/upload-to-release@master
         with:
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
-          tag: ${{ github.ref_name }}
-          file: build/*.zip
-          file_glob: true
-          overwrite: true
+          args: build/simple-language-switcher.zip application/zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
