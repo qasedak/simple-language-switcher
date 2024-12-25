@@ -1,7 +1,8 @@
 name: Generate Installable Plugin, and Upload as Release Asset
 on:
   release:
-    types: [ published ]
+    types: [published]
+
 jobs:
   build:
     name: Create & Upload ZIP
@@ -9,55 +10,52 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
-      - name: Build composer
+      - name: Debug - List files
         run: |
-          mkdir build
-#          composer install --no-dev --optimize-autoloader
+          pwd
+          ls -la
 
-      - name: Setup git
+      - name: Create build directory
         run: |
-          git config user.name "GitHub Actions Bot"
-          git config user.email "<>"
-          git add -A .
-          if [ -d "vendor" ]; then
-            git add -f vendor
-          fi
-          git diff-index --quiet HEAD -- || git commit -m "Update files"
+          mkdir -p build/${{ github.event.repository.name }}
+          echo "Build directory created"
+          
+      - name: Copy plugin files
+        run: |
+          # Copy all plugin files except development ones
+          rsync -av --progress ./* build/${{ github.event.repository.name }}/ \
+            --exclude .git \
+            --exclude .github \
+            --exclude node_modules \
+            --exclude tests \
+            --exclude build \
+            --exclude "*.log" \
+            --exclude .gitignore
+          
+          echo "Files copied to build directory:"
+          ls -la build/${{ github.event.repository.name }}/
 
-      - name: Build ZIP
+      - name: Create ZIP file
         run: |
-          git archive -o build/${{ github.event.repository.name }}-${{ github.ref_name }}.zip --prefix ${{ github.event.repository.name }}/ HEAD          
-          ls
-
-      - name: Get Build Files
-        id: get-build-files
-        run: |
-          ZIP_FILES=$(find build -type f -name "*.zip")
-          JSON_OUTPUT="{"
-          if [ -n "$ZIP_FILES" ]; then
-            for file in $ZIP_FILES; do
-              JSON_OUTPUT="$JSON_OUTPUT\"$(basename "$file")\": \"$file\", "
-            done
-            JSON_OUTPUT="${JSON_OUTPUT::-2}}"
-            echo $JSON_OUTPUT
-          else
-            echo "No .zip files found in the build folder."
-            JSON_OUTPUT="}"
-          fi
-          echo "files=$JSON_OUTPUT" >> $GITHUB_OUTPUT
+          cd build
+          zip -r ${{ github.event.repository.name }}-${{ github.ref_name }}.zip ${{ github.event.repository.name }}
+          echo "Created ZIP file:"
+          ls -la *.zip
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: Build Files
           path: build/*.zip
-
+          
       - name: Upload to release
         uses: svenstaro/upload-release-action@master
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
-          tag: ${{ github.ref_name }}
-          file: build/*.zip
-          file_glob: true
+          file: build/${{ github.event.repository.name }}-${{ github.ref_name }}.zip
+          asset_name: ${{ github.event.repository.name }}-${{ github.ref_name }}.zip
+          tag: ${{ github.ref }}
           overwrite: true
