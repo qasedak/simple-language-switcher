@@ -23,7 +23,7 @@ class SimpleLanguageSwitcherSettings {
         return self::$instance;
     }
 
-    private function __construct() {
+    public function __construct() {
         add_action('admin_menu', [$this, 'add_settings_page']);
         add_action('admin_init', [$this, 'register_settings']);
         
@@ -32,6 +32,8 @@ class SimpleLanguageSwitcherSettings {
 
         // Register settings link
         $this->register_settings_link();
+
+        add_action('admin_enqueue_scripts', [$this, 'enqueue_admin_assets']);
     }
 
     private function maybe_migrate_settings() {
@@ -223,25 +225,36 @@ class SimpleLanguageSwitcherSettings {
                                     <th><?php esc_html_e('Identifier', 'simple-language-switcher'); ?></th>
                                     <th><?php esc_html_e('Value', 'simple-language-switcher'); ?></th>
                                     <th><?php esc_html_e('Shortcode', 'simple-language-switcher'); ?></th>
-                                    <th><?php esc_html_e('Action', 'simple-language-switcher'); ?></th>
+                                    <th><?php esc_html_e('Actions', 'simple-language-switcher'); ?></th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php foreach ($strings as $index => $string): ?>
-                                <tr>
+                                <tr data-row-id="<?php echo esc_attr($index); ?>">
                                     <td>
-                                        <input type="text" name="<?php echo esc_attr($this->strings_option_name); ?>[<?php echo esc_attr($index); ?>][identifier]" 
-                                               value="<?php echo esc_attr($string['identifier']); ?>" required>
+                                        <input type="text" 
+                                               class="identifier-input" 
+                                               name="<?php echo esc_attr($this->strings_option_name); ?>[<?php echo esc_attr($index); ?>][identifier]" 
+                                               value="<?php echo esc_attr($string['identifier']); ?>" 
+                                               readonly
+                                               required>
                                     </td>
                                     <td>
-                                        <input type="text" name="<?php echo esc_attr($this->strings_option_name); ?>[<?php echo esc_attr($index); ?>][value]" 
-                                               value="<?php echo esc_attr($string['value']); ?>" required>
+                                        <input type="text" 
+                                               class="value-input"
+                                               name="<?php echo esc_attr($this->strings_option_name); ?>[<?php echo esc_attr($index); ?>][value]" 
+                                               value="<?php echo esc_attr($string['value']); ?>" 
+                                               readonly
+                                               required>
                                     </td>
                                     <td>
                                         <code>[SLS-<?php echo esc_html($string['identifier']); ?>]</code>
                                     </td>
                                     <td>
+                                        <button type="button" class="button edit-string"><?php esc_html_e('Edit', 'simple-language-switcher'); ?></button>
                                         <button type="button" class="button remove-string"><?php esc_html_e('Remove', 'simple-language-switcher'); ?></button>
+                                        <button type="button" class="button save-string" style="display:none;"><?php esc_html_e('Save', 'simple-language-switcher'); ?></button>
+                                        <button type="button" class="button cancel-edit" style="display:none;"><?php esc_html_e('Cancel', 'simple-language-switcher'); ?></button>
                                     </td>
                                 </tr>
                                 <?php endforeach; ?>
@@ -253,26 +266,6 @@ class SimpleLanguageSwitcherSettings {
                         <?php submit_button(); ?>
                     </form>
                 </div>
-                <script>
-                jQuery(document).ready(function($) {
-                    $('#add-string').on('click', function() {
-                        const index = $('#translatable-strings-table tbody tr').length;
-                        const row = `
-                            <tr>
-                                <td><input type="text" name="<?php echo esc_attr($this->strings_option_name); ?>[${index}][identifier]" required></td>
-                                <td><input type="text" name="<?php echo esc_attr($this->strings_option_name); ?>[${index}][value]" required></td>
-                                <td><code>[SLS-]</code></td>
-                                <td><button type="button" class="button remove-string"><?php esc_html_e('Remove', 'simple-language-switcher'); ?></button></td>
-                            </tr>
-                        `;
-                        $('#translatable-strings-table tbody').append(row);
-                    });
-
-                    $(document).on('click', '.remove-string', function() {
-                        $(this).closest('tr').remove();
-                    });
-                });
-                </script>
             <?php else: ?>
                 <form action="options.php" method="post">
                     <?php
@@ -284,6 +277,27 @@ class SimpleLanguageSwitcherSettings {
             <?php endif; ?>
         </div>
         <?php
+    }
+
+    public function enqueue_admin_assets($hook) {
+        if ($hook !== 'settings_page_' . $this->page_slug) {
+            return;
+        }
+        
+        wp_enqueue_style(
+            'sls-admin-settings',
+            plugin_dir_url(__FILE__) . 'admin/css/admin-settings.css',
+            [],
+            filemtime(plugin_dir_path(__FILE__) . 'admin/css/admin-settings.css')
+        );
+
+        wp_enqueue_script(
+            'sls-admin-settings',
+            plugin_dir_url(__FILE__) . 'admin/js/admin-settings.js',
+            ['jquery'],
+            filemtime(plugin_dir_path(__FILE__) . 'admin/js/admin-settings.js'),
+            true
+        );
     }
 
     // Settings link for SLS

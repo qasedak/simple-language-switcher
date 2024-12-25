@@ -1,0 +1,10 @@
+#translatable-strings-table input[readonly] {
+    background-color: #f8f8f8;
+    border-color: #ddd;
+    color: #666;
+    cursor: not-allowed;
+}
+
+.button.edit-string {
+    margin-right: 5px;
+}
