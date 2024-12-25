@@ -174,7 +174,15 @@ class SimpleLanguageSwitcherSettings {
 
     public function render_strings_description() {
         echo '<p>' . __('Add translatable strings that you can use in your templates. you can display these strings by shortcode or using the block "Translatable String" in the Gutenberg editor.<br>The identifier is uesed as a key and it can be numbers, letters and underscores only in <strong>english</strong>.<br><strong>Note:</strong> if you use a WordPress Block theme, it\'s recommended to use only the block "Translatable String" in the Gutenberg editor and disable the shortcodes support in the Display settings Tab.', 'simple-language-switcher') . '</p>';
-        echo '<p>' . __('After adding Translatable string you can translate them through Polylang <a href="' . esc_url(admin_url('admin.php?page=mlang_strings&s&group=simple-language-switcher&paged=1')) . '">here</a>.', 'simple-language-switcher') . '</p>';
+        printf(
+            '<p>%s %s</p>',
+            esc_html__('After adding Translatable string you can translate them through Polylang', 'simple-language-switcher'),
+            wp_kses_post(sprintf(
+                '<a href="%s">%s</a>.',
+                esc_url(admin_url('admin.php?page=mlang_strings&s&group=simple-language-switcher&paged=1')),
+                esc_html__('here', 'simple-language-switcher')
+            ))
+        );
     }
 
     public function sanitize_translatable_strings($input) {

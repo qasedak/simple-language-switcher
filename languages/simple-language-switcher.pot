@@ -1,11 +1,13 @@
 # Copyright (C) 2024 Mohammad Anbarestany
-# This file is distributed under the same license as the Simple Language Switcher plugin.
+# This file is distributed under the GPLv3.
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Simple Language Switcher 1.9 RC\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
+"POT-Creation-Date: 2024-12-25T00:41:45+01:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Mohammad Anbarestany <m_anbarestany@hotmail.com>\n"
 "Language-Team: \n"
@@ -15,39 +17,48 @@ msgstr ""
 "X-Generator: Poedit 3.5\n"
 "X-Domain: simple-language-switcher\n"
 
-#. Plugin Name of the plugin/theme
+#. Plugin Name of the plugin
+#: simple-language-switcher.php
 msgid "Simple Language Switcher"
 msgstr ""
 
-#. Description of the plugin/theme
-msgid "A simple language switcher plugin that works with Polylang. It allows you to display a language switcher in any page or post using a shortcode or block."
+#. Plugin URI of the plugin
+#: simple-language-switcher.php
+msgid "https://anbarestany.ir/simple-language-switcher-a-clean-modal-language-switcher-for-wordpress/"
 msgstr ""
 
-#. Author of the plugin/theme
+#. Description of the plugin
+#: simple-language-switcher.php
+msgid "A lightweight language switcher plugin that displays a clean, modal-style language selection popup. Compatible with Polylang."
+msgstr ""
+
+#. Author of the plugin
+#: simple-language-switcher.php
 msgid "Mohammad Anbarestany"
 msgstr ""
 
-#: simple-language-switcher.php:45
-msgid "Select Language"
+#. Author URI of the plugin
+#: simple-language-switcher.php
+msgid "https://anbarestany.ir/"
 msgstr ""
 
-#: simple-language-switcher.php:138
-msgid "This plugin requires Polylang to be installed and activated."
-msgstr ""
-
-#: admin-settings.php:51
+#: admin-settings.php:54
 msgid "Simple Language Switcher Settings"
 msgstr ""
 
-#: admin-settings.php:52
+#: admin-settings.php:55
 msgid "Language Switcher"
 msgstr ""
 
-#: admin-settings.php:98
+#: admin-settings.php:84 admin-settings.php:210
 msgid "Display Settings"
 msgstr ""
 
-#: admin-settings.php:98
+#: admin-settings.php:94 admin-settings.php:213
+msgid "Translatable Strings"
+msgstr ""
+
+#: admin-settings.php:101
 msgid "Configure how the language switcher appears on your site."
 msgstr ""
 
@@ -59,100 +70,128 @@ msgstr ""
 msgid "Warning: The shortcode [translated_links] is deprecated and will be removed in next versions."
 msgstr ""
 
-#: admin-settings.php:105
+#: admin-settings.php:109
 msgid "Show Flags"
 msgstr ""
 
-#: admin-settings.php:106
+#: admin-settings.php:110
 msgid "Display country flags using Polylang's built-in flag system"
 msgstr ""
 
-#: admin-settings.php:109
+#: admin-settings.php:113
 msgid "Show Language Names"
 msgstr ""
 
-#: admin-settings.php:110
+#: admin-settings.php:114
 msgid "Display the full language names"
 msgstr ""
 
-#: admin-settings.php:113
+#: admin-settings.php:117
 msgid "Hide Current Language"
 msgstr ""
 
-#: admin-settings.php:114
+#: admin-settings.php:118
 msgid "Hide the current language from the language list"
 msgstr ""
 
-#: admin-settings.php:117
+#: admin-settings.php:121
 msgid "Hide Untranslated Languages"
 msgstr ""
 
-#: admin-settings.php:118
+#: admin-settings.php:122
 msgid "Hide languages that don't have translations for the current content"
 msgstr ""
 
-#: admin-settings.php:121
+#: admin-settings.php:125
 msgid "Translate Author Display Names"
 msgstr ""
 
-#: admin-settings.php:122
+#: admin-settings.php:126
 msgid "Enable translation of author display names across languages through Polylang"
 msgstr ""
 
-#: admin-settings.php:125
+#: admin-settings.php:129
 msgid "Enable Shortcodes Support"
 msgstr ""
 
-#: admin-settings.php:126
+#: admin-settings.php:130
 msgid "Enable support for shortcodes (disable if you only use blocks for better performance)"
 msgstr ""
 
-#: admin-settings.php:172
-msgid "Translatable Strings"
-msgstr ""
-
-#: admin-settings.php:172
+#: admin-settings.php:176
 msgid "Add translatable strings that you can use in your templates. you can display these strings by shortcode or using the block \"Translatable String\" in the Gutenberg editor.<br>The identifier is uesed as a key and it can be numbers, letters and underscores only in <strong>english</strong>.<br><strong>Note:</strong> if you use a WordPress Block theme, it's recommended to use only the block \"Translatable String\" in the Gutenberg editor and disable the shortcodes support in the Display settings Tab."
 msgstr ""
 
-#: admin-settings.php:217
+#: admin-settings.php:179
+msgid "After adding Translatable string you can translate them through Polylang"
+msgstr ""
+
+#: admin-settings.php:183
+msgid "here"
+msgstr ""
+
+#: admin-settings.php:228
 msgid "Identifier"
 msgstr ""
 
-#: admin-settings.php:218
+#: admin-settings.php:229
 msgid "Value"
 msgstr ""
 
-#: admin-settings.php:219
+#: admin-settings.php:230
 msgid "Shortcode"
 msgstr ""
 
-#: admin-settings.php:220
+#: admin-settings.php:231
 msgid "Action"
 msgstr ""
 
-#: admin-settings.php:238
+#: admin-settings.php:249 admin-settings.php:270
 msgid "Remove"
 msgstr ""
 
-#: admin-settings.php:245
+#: admin-settings.php:256
 msgid "Add String"
 msgstr ""
 
+#: admin-settings.php:300
+msgid "Settings"
+msgstr ""
+
+#: simple-language-switcher.php:45
+msgid "Select Language"
+msgstr ""
+
+#: simple-language-switcher.php:140
+msgid "This plugin requires Polylang to be installed and activated."
+msgstr ""
+
+#: blocks/translatable-string/build/index.js:1
 #: blocks/translatable-string/index.js:28
 msgid "Loading..."
 msgstr ""
 
+#: blocks/translatable-string/build/index.js:1
 #: blocks/translatable-string/index.js:35
 msgid "No translatable strings found. Please add some in the Settings > Translatable Strings page."
 msgstr ""
 
+#: blocks/translatable-string/build/index.js:1
 #: blocks/translatable-string/index.js:45
 msgid "Select a string"
 msgstr ""
 
+#: blocks/translatable-string/build/index.js:1
 #: blocks/translatable-string/index.js:62
 msgid "Select Translatable String"
 msgstr ""
 
+#: blocks/translatable-string/block.json
+msgctxt "block title"
+msgid "Translatable String"
+msgstr ""
 
+#: blocks/translatable-string/block.json
+msgctxt "block description"
+msgid "Display a translatable string across different languages"
+msgstr ""
