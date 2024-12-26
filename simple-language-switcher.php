@@ -113,9 +113,9 @@ function display_translated_post_links()
 }
 
 // Register shortcode for language links
-// [translated_links] is deprecated, use [super-language-switcher] instead
+// [translated_links] is deprecated, use [simple-language-switcher] instead
 add_shortcode('translated_links', 'display_translated_post_links');
-add_shortcode( 'super-language-switcher', 'display_translated_post_links' );
+add_shortcode( 'simple-language-switcher', 'display_translated_post_links' );
 
 // Enqueue styles and scripts
 function translated_links_enqueue_styles_and_scripts()
