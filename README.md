@@ -24,7 +24,7 @@ Simple Language Switcher is a lightweight WordPress plugin that provides a clean
 
 ## Usage
 
-1. **Add the Shortcode**: Use the `[translated_links]` shortcode in your posts, pages, or widgets where you want the language switcher to appear.
+1. **Add the Shortcode**: Use the `[super-language-switcher]` shortcode in your posts, pages, or widgets where you want the language switcher to appear.
 2. **Add Translatable Strings**: 
     - Use the Gutenberg block "Translatable String" to add translatable strings. (Recommended)
     - Use the shortcode format [SLS-{identifier}] to display the translated string. (For old themes)
