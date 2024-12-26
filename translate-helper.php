@@ -125,7 +125,8 @@ function render_translatable_string_block($attributes) {
     }
 
     $wrapper_attributes = get_block_wrapper_attributes([
-        'class' => 'wp-block-simple-language-switcher-translatable-string'
+        'class' => 'wp-block-simple-language-switcher-translatable-string',
+        'lang' => substr(get_locale(), 0, 2)
     ]);
 
     $strings = get_option('sls_translatable_strings', []);

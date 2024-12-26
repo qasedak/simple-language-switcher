@@ -118,9 +118,21 @@ add_shortcode('translated_links', 'display_translated_post_links');
 add_shortcode( 'simple-language-switcher', 'display_translated_post_links' );
 
 // Enqueue styles and scripts
-function translated_links_enqueue_styles_and_scripts()
-{
-    wp_enqueue_style('simple-language-switcher-style', plugin_dir_url(__FILE__) . 'style.css');
+function translated_links_enqueue_styles_and_scripts() {
+    // Preload CSS
+    add_action('wp_head', function() {
+        printf(
+            '<link rel="preload" href="%s" as="style" onload="this.onload=null;this.rel=\'stylesheet\'">',
+            esc_url(plugin_dir_url(__FILE__) . 'style.css')
+        );
+        // fallback for Google's bot as it doesn't support JavaScript
+        printf(
+            '<noscript><link rel="stylesheet" href="%s"></noscript>',
+            esc_url(plugin_dir_url(__FILE__) . 'style.css')
+        );
+    }, 5);
+
+    // Enqueue script normally
     wp_enqueue_script('simple-language-switcher-script', plugin_dir_url(__FILE__) . 'script.js', array(), null, true);
 }
 add_action('wp_enqueue_scripts', 'translated_links_enqueue_styles_and_scripts');
