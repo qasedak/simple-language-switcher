@@ -6,6 +6,6 @@
     "start": "wp-scripts start blocks/translatable-string/index.js --output-path=blocks/translatable-string/build"
   },
   "devDependencies": {
-    "@wordpress/scripts": "^30.7.0"
+    "@wordpress/scripts": "^30.14.1"
   }
 } 
