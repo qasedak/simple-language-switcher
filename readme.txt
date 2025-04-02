@@ -43,6 +43,9 @@ Simple Language Switcher adds a sleek, modal-style language selector to your Wor
 
 == Changelog ==
 
+= 1.9.0 RC2 =
+* Bug Fix: Add String button wasn't working
+
 = 1.9.0 RC1 =
 * Editing functionality for translatable strings
 
@@ -75,8 +78,8 @@ Simple Language Switcher adds a sleek, modal-style language selector to your Wor
 
 == Upgrade Notice ==
 
-= 1.9.0 RC1 =
-This version adds editing functionality for translatable strings. Upgrade is optional.
+= 1.9.0 RC2 =
+This version fixes bugs. Upgrade is recommended.
 
 == Privacy Policy ==
 
