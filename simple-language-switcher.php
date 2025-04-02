@@ -4,7 +4,7 @@
  * Plugin Name: Simple Language Switcher
  * Plugin URI: https://anbarestany.ir/simple-language-switcher-a-clean-modal-language-switcher-for-wordpress/
  * Description: A lightweight language switcher plugin that displays a clean, modal-style language selection popup. Compatible with Polylang.
- * Version: 1.9.0 RC1
+ * Version: 1.9.0 RC2
  * Requires at least: 5.0
  * Requires PHP: 7.4
  * Author: Mohammad Anbarestany

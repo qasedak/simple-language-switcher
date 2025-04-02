@@ -1,5 +1,37 @@
 jQuery(document).ready(function($) {
     let originalValues = {};
+    let rowCount = $('#translatable-strings-table tbody tr').length;
+
+    // Add string functionality
+    $('#add-string').on('click', function() {
+        const newRow = $(`
+            <tr data-row-id="${rowCount}">
+                <td>
+                    <input type="text" 
+                           class="identifier-input" 
+                           name="sls_translatable_strings[${rowCount}][identifier]" 
+                           value="" 
+                           required>
+                </td>
+                <td>
+                    <input type="text" 
+                           class="value-input"
+                           name="sls_translatable_strings[${rowCount}][value]" 
+                           value="" 
+                           required>
+                </td>
+                <td>
+                    <code>[SLS-]</code>
+                </td>
+                <td>
+                    <button type="button" class="button save-string">Save</button>
+                    <button type="button" class="button cancel-edit">Cancel</button>
+                </td>
+            </tr>
+        `);
+        $('#translatable-strings-table tbody').append(newRow);
+        rowCount++;
+    });
 
     // Edit functionality
     $(document).on('click', '.edit-string', function() {
