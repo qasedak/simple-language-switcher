@@ -3,9 +3,10 @@
   "version": "1.0.0",
   "scripts": {
     "build": "wp-scripts build blocks/translatable-string/index.js --output-path=blocks/translatable-string/build",
-    "start": "wp-scripts start blocks/translatable-string/index.js --output-path=blocks/translatable-string/build"
+    "start": "wp-scripts start blocks/translatable-string/index.js --output-path=blocks/translatable-string/build",
+    "plugin-zip": "bash bin/build-plugin-zip.sh"
   },
   "devDependencies": {
-    "@wordpress/scripts": "^30.14.1"
+    "@wordpress/scripts": "^37.1.0"
   }
-} 
+}

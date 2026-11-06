@@ -1,49 +1,39 @@
-# GitHub Action: whenever creating a new release of the source code,
-# also create a release of the installable plugin.
-# Steps to execute:
-# - Checkout the source code
-# - Run "composer install" to download all dependencies under vendor/
-# - Create a .zip file, excluding:
-#   - All hidden files (.git, .gitignore, etc)
-#   - All development files, ending in .dist
-#   - All composer files <= after installing dependencies, no need for them anymore
-#   - Markdown files concerning development
-#   - Folder build/ <= created only to store the .zip file
-#   - Folder dev-helpers/ <= not needed for the plugin
-# - Upload the .zip file as an artifact to the action (this step is possibly optional)
-# - Upload the .zip file as a release, for download
-name: Generate Installable Plugin, and Upload as Release Asset
+# Build the installable plugin zip and attach it to a published release.
+# Packaging lives in bin/build-plugin-zip.sh so the same archive can be
+# built locally with: bash bin/build-plugin-zip.sh
+name: Release plugin zip
+
 on:
   release:
     types: [published]
+
 jobs:
   build:
-    name: Upload Release Asset
+    name: Build and upload plugin zip
     runs-on: ubuntu-latest
     permissions:
-      contents: write # This gives permission to create releases
+      contents: write
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-      
-      - name: Build project
-        run: |
-          mkdir build
-          
-      - name: Create artifact
-        uses: montudor/action-zip@v1
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
         with:
-          args: zip -X -r build/simple-language-switcher.zip . -x *.git* node_modules/\* .* "*/\.*" CODE_OF_CONDUCT.md CONTRIBUTING.md ISSUE_TEMPLATE.md PULL_REQUEST_TEMPLATE.md *.dist *.yml *.neon composer.* dev-helpers** build** wporg-assets** phpunit**
-          
+          node-version: 22
+          cache: npm
+
+      - name: Build plugin zip
+        run: bash bin/build-plugin-zip.sh
+
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: simple-language-switcher
           path: build/simple-language-switcher.zip
-          
-      - name: Upload Release Asset
-        uses: softprops/action-gh-release@v1
-        if: startsWith(github.ref, 'refs/tags/')
+
+      - name: Upload release asset
+        uses: softprops/action-gh-release@v2
         with:
           files: build/simple-language-switcher.zip
         env:

@@ -1,6 +1,9 @@
 # Dependencies
 /node_modules
 
+# Local release zip
+/build/
+
 # IDE and System files
 .DS_Store
 .idea
