@@ -55,12 +55,15 @@ function display_translated_post_links()
 
     $options = get_option('sls_settings');
 
-    // Determine the current object ID based on the page type
+    // On search, leave post_id unset so Polylang switches /{lang}/?s=keyword
+    // instead of linking to a result post's translation.
     $current_object_id = null;
-    if (is_category()) {
-        $current_object_id = get_queried_object_id();
-    } else {
-        $current_object_id = get_the_ID();
+    if (!is_search()) {
+        if (is_category()) {
+            $current_object_id = get_queried_object_id();
+        } else {
+            $current_object_id = get_the_ID();
+        }
     }
 
     // Use Polylang's native arguments

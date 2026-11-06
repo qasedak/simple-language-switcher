@@ -45,6 +45,7 @@ Simple Language Switcher adds a sleek, modal-style language selector to your Wor
 
 = 1.9.0 RC2 =
 * Bug Fix: Add String button wasn't working
+* Bug Fix: Language links on search pages now switch the search URL instead of linking to the first result's translation
 
 = 1.9.0 RC1 =
 * Editing functionality for translatable strings
